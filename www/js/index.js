@@ -16,11 +16,25 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
 var app = {
-    // Application Constructor
-    initialize: function() {
-        document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
-    },
+   initialize: function() {
+      document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
+      document.addEventListener('init', (event) => {
+         const page = event.target;
+
+         if (page.id === 'top') {
+            page.querySelector('#push-button').onclick = () => {
+               document.querySelector('#myNavigator').pushPage('settings.html', {data: {}})
+            }
+         }
+         else if (page.id === 'settings') {
+            document.querySelector('.back-button').onclick = () => {
+               document.querySelector('#myNavigator').popPage('settings.html')
+            }
+         }
+      });
+   },
 
     // deviceready Event Handler
     //
@@ -29,7 +43,6 @@ var app = {
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
         console.info('%cdeviceready!!', 'color: #008080; font-size: 20px;')
-        // persistence.store.websql.config(persistence, 'yourdbname', 'A database description', 5 * 1024 * 1024);
 
         sqlitePlugin.selfTest(function() {
               // テスト成功
@@ -43,9 +56,9 @@ var app = {
 
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
+        const parentElement = document.getElementById(id);
+        const listeningElement = parentElement.querySelector('.listening');
+        const receivedElement = parentElement.querySelector('.received');
 
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');

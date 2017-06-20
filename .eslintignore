@@ -1,1 +1,3 @@
-src/js/onsenui.js
+www/js/onsenui.js
+webpack.config.js
+node_modules

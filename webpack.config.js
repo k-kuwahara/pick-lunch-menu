@@ -6,15 +6,15 @@ const path = require('path'),
 module.exports = [
    {
       entry: [
-         './src/js/index.js',
-         './src/js/onsenui.js'
+         './www/js/index.js',
+         './www/js/onsenui.js'
       ],
       output: {
-         path: path.resolve(`${__dirname}/src/build/`),
+         path: path.resolve(`${__dirname}/www/build/`),
          filename: 'bundle.js'
       },
       devServer: {
-         contentBase: 'src',
+         contentBase: 'www',
          port: 8000,
          open: true,
          hot: true,
@@ -42,13 +42,14 @@ module.exports = [
       },
       resolve: {
          extensions: ['.js']
-      }
+      },
+      devtool: 'cheap-module-source-map',
    },
    {
-      entry: glob.sync('./src/scss/*.scss'),
+      entry: glob.sync('./www/scss/*.scss'),
       output: {
-         path: path.resolve(__dirname + '/src/build'),
-         filename: 'style.css'
+         path: path.resolve(`${__dirname}/www/build/`),
+         filename: 'app.bundle.css'
       },
       module: {
          rules: [
@@ -59,30 +60,27 @@ module.exports = [
                   fallback: 'style-loader',
                   use: ['css-loader', 'sass-loader?outputStyle=expanded']
                })
-            }
-         ]
-      },
-      plugins: [
-         new ExtractTextPlugin({ filename: "style.css" })
-      ]
-   },
-   {
-      entry: glob.sync('./src/scss/*.css'),
-      output: {
-         path: path.resolve(__dirname + '/src/build'),
-         filename: 'libs.css'
-      },
-      module: {
-         rules: [
+            },
+            {
+               test: /\.woff(?:2)?(?:\?v=[0-9]+\.[0-9]+\.[0-9]+)?$/,
+               loader: 'url-loader?limit=10000&mimetype=application/font-woff'
+            },
+            {
+               test: /\.(?:ttf|eot|svg)(?:\?v=[0-9]+\.[0-9]+\.[0-9]+)?$/,
+               loader: 'file-loader'
+            },
             {
                test: /\.css$/,
-               enforce: 'post',
-               use: ['style-loader', 'css-loader?outputStyle=expanded']
+               loader: ExtractTextPlugin.extract({
+                  fallback: 'style-loader',
+                  use: 'css-loader?sourceMap=true'
+               })
             }
          ]
       },
+      devtool: 'cheap-module-source-map',
       plugins: [
-         new ExtractTextPlugin({ filename: "libs.css" })
+         new ExtractTextPlugin('app.bundle.css')
       ]
    }
 ]
