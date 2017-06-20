@@ -100,9 +100,22 @@ h1 {
   -webkit-animation: fade 3000ms infinite;
 }
 
+.nav-header {
+  background: #13BDE2;
+}
+
+.nav-header .toolbar__title {
+  color: #fff;
+}
+
 #top .page__content {
   text-align: center;
   padding: 20px;
+}
+
+#top .menu-dialog {
+  padding: 15px;
+  text-align: center;
 }
 
 #settings ons-tab {

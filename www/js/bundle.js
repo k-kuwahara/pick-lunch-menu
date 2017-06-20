@@ -204,12 +204,10 @@ function drainQueue() {
 }
 
 process.nextTick = function (fun) {
-    var arguments$1 = arguments;
-
     var args = new Array(arguments.length - 1);
     if (arguments.length > 1) {
         for (var i = 1; i < arguments.length; i++) {
-            args[i - 1] = arguments$1[i];
+            args[i - 1] = arguments[i];
         }
     }
     queue.push(new Item(fun, args));
@@ -263,17 +261,35 @@ process.umask = function() { return 0; };
 /***/ (function(module, exports) {
 
 
+var this$1 = this;
+
 var app = {
-   initialize: function() {
-      document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
+   initialize: function () {
+      document.addEventListener('deviceready', app.onDeviceReady.bind(this$1), false);
       document.addEventListener('init', function (event) {
          var page = event.target;
 
+         // TOPページ
          if (page.id === 'top') {
+            // 編集ページ遷移
             page.querySelector('#push-button').onclick = function () {
                document.querySelector('#myNavigator').pushPage('settings.html', {data: {}})
             }
+
+            // メニューダイアログ表示
+            var btn_dialog = document.querySelector('#show-dialog')
+            btn_dialog.addEventListener('click', function () {
+               document.getElementById('menu-dialog').show()
+            })
+
+            // メニューダイアログ非表示
+            btn_dialog = document.querySelector('#hide-dialog')
+            btn_dialog.addEventListener('click', function () {
+               document.getElementById('menu-dialog').hide()
+            })
          }
+
+         // 編集ページ
          else if (page.id === 'settings') {
             document.querySelector('.back-button').onclick = function () {
                document.querySelector('#myNavigator').popPage('settings.html')
@@ -310,7 +326,7 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
-    }
+    },
 };
 
 app.initialize();
@@ -35723,8 +35739,6 @@ module.exports = function (module) {
     var registerImmediate;
 
     function setImmediate(callback) {
-      var arguments$1 = arguments;
-
       // Callback can either be a function or a string
       if (typeof callback !== "function") {
         callback = new Function("" + callback);
@@ -35732,7 +35746,7 @@ module.exports = function (module) {
       // Copy function arguments
       var args = new Array(arguments.length - 1);
       for (var i = 0; i < args.length; i++) {
-          args[i] = arguments$1[i + 1];
+          args[i] = arguments[i + 1];
       }
       // Store and register the task
       var task = { callback: callback, args: args };
@@ -35948,7 +35962,7 @@ exports._unrefActive = exports.active = function(item) {
   if (msecs >= 0) {
     item._idleTimeoutId = setTimeout(function onTimeout() {
       if (item._onTimeout)
-        { item._onTimeout(); }
+        item._onTimeout();
     }, msecs);
   }
 };
@@ -35976,7 +35990,7 @@ try {
 } catch(e) {
 	// This works if the window reference is available
 	if(typeof window === "object")
-		{ g = window; }
+		g = window;
 }
 
 // g can still be undefined, but nothing to do about it...
@@ -35996,4 +36010,3 @@ module.exports = __webpack_require__(2);
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=bundle.js.map

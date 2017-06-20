@@ -6,11 +6,11 @@ const path = require('path'),
 module.exports = [
    {
       entry: [
-         './www/js/index.js',
-         './www/js/onsenui.js'
+         './www/src/js/index.js',
+         './www/src/js/onsenui.js'
       ],
       output: {
-         path: path.resolve(`${__dirname}/www/build/`),
+         path: path.resolve(`${__dirname}/www/js/`),
          filename: 'bundle.js'
       },
       devServer: {
@@ -46,9 +46,9 @@ module.exports = [
       devtool: 'cheap-module-source-map',
    },
    {
-      entry: glob.sync('./www/scss/*.scss'),
+      entry: glob.sync('./www/src/scss/*.scss'),
       output: {
-         path: path.resolve(`${__dirname}/www/build/`),
+         path: path.resolve(`${__dirname}/www/css/`),
          filename: 'app.bundle.css'
       },
       module: {
