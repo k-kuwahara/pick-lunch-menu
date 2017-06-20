@@ -101,11 +101,44 @@ h1 {
 }
 
 .nav-header {
-  background: #13BDE2;
+  background: #FF9933;
 }
 
 .nav-header .toolbar__title {
+  text-align: center;
+  color: #330000;
+  font-size: 20px;
+}
+
+.nav-header .back-button {
   color: #fff;
+}
+
+.nav-header #push-button {
+  position: fixed;
+  color: #fff;
+  top: 8px;
+  right: 5px;
+  font-size: 18px;
+  z-index: 999;
+}
+
+#top #show-dialog {
+  padding: 10px 18px;
+  font-size: 1.6em;
+  font-weight: 900;
+  margin-top: 50px;
+  width: 180px;
+  border-radius: 10px;
+  border: 1px solid #330000;
+  color: #330000;
+  background-color: #FF9933;
+}
+
+#top #hide-dialog {
+  background-color: #4181CB;
+  font-size: 14px;
+  margin-top: 10px;
 }
 
 #top .page__content {

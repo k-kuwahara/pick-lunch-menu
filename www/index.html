@@ -20,10 +20,8 @@
     <ons-template id="top.html">
       <ons-page id="top">
         <ons-toolbar class="nav-header">
-          <div class="center">メニュー登録</div>
-          <div class="right">
-            <ons-button id="push-button">編集</ons-button>
-          </div>
+          <div class="center">メニューゲット</div>
+          <ons-next-button id="push-button">編集 <i class="fa fa-chevron-right" aria-hidden="true"></i></ons-next-button>
         </ons-toolbar>
 
         <h3>今日のお昼は何にしよう？</h3>
@@ -34,7 +32,7 @@
             <h3>Menu1</h3>
             <p>はいかがですか？</p>
             <p>
-              <ons-button id="hide-dialog">Close</ons-button>
+              <ons-button id="hide-dialog">✕ Close</ons-button>
             </p>
           </div>
         </ons-modal>
@@ -51,7 +49,7 @@
         <ons-template id="menu.html">
           <ons-page>
             <ons-toolbar class="nav-header">
-              <div class="left"><ons-back-button>Back</ons-back-button></div>
+              <div class="left"><ons-back-button class="back-button">Back</ons-back-button></div>
               <div class="center">メニュー登録</div>
             </ons-toolbar>
           </ons-page>
