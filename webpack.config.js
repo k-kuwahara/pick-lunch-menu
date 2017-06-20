@@ -5,9 +5,12 @@ const path = require('path'),
 
 module.exports = [
    {
-      entry: glob.sync('./src/js/*.js'),
+      entry: [
+         './src/js/index.js',
+         './src/js/onsenui.js'
+      ],
       output: {
-         path: path.resolve(__dirname + '/src/build/'),
+         path: path.resolve(`${__dirname}/src/build/`),
          filename: 'bundle.js'
       },
       devServer: {
@@ -21,36 +24,25 @@ module.exports = [
          rules: [
             {
                test: /\.js$/,
-               enforce: 'post',
+               enforce: 'pre',
                exclude: /node_modules/,
                loader: 'buble-loader'
-            }
-         ]
-      }
-   },
-   {
-      entry: glob.sync('./src/scss/*.css'),
-      output: {
-         path: path.resolve(__dirname + '/src/build'),
-         filename: 'libs.css'
-      },
-      module: {
-         rules: [
-            {
-               test: /\.css$/,
-               use: ['style-loader', 'css-loader?outputStyle=expanded']
-
             },
             {
-               test: /\.(otf|eot|svg|ttf|woff|woff2)(\?.+)?$/,
+               test: /\.js$/,
                enforce: 'pre',
-               use: ['url-loader', 'file-loader']
+               exclude: '/node_modules/',
+               loader: 'eslint-loader',
+               options: {
+                  fix: true,
+                  failOnError: true
+               }
             }
          ]
       },
-      plugins: [
-         new ExtractTextPlugin({ filename: "libs.css" })
-      ]
+      resolve: {
+         extensions: ['.js']
+      }
    },
    {
       entry: glob.sync('./src/scss/*.scss'),
@@ -72,6 +64,25 @@ module.exports = [
       },
       plugins: [
          new ExtractTextPlugin({ filename: "style.css" })
+      ]
+   },
+   {
+      entry: glob.sync('./src/scss/*.css'),
+      output: {
+         path: path.resolve(__dirname + '/src/build'),
+         filename: 'libs.css'
+      },
+      module: {
+         rules: [
+            {
+               test: /\.css$/,
+               enforce: 'post',
+               use: ['style-loader', 'css-loader?outputStyle=expanded']
+            }
+         ]
+      },
+      plugins: [
+         new ExtractTextPlugin({ filename: "libs.css" })
       ]
    }
 ]

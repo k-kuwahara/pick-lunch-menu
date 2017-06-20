@@ -6,47 +6,54 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-    <link rel="stylesheet" type="text/css" href="scss/onsenui.css">
-    <link rel="stylesheet" type="text/css" href="scss/onsen-css-components.css">
-    <link rel="stylesheet" type="text/css" href="build/style.css">
-    <script src="js/onsenui.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/onsenui.css">
+    <link rel="stylesheet" type="text/css" href="css/onsen-css-components.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="js/bundle.js"></script>
-    <title>Hello World</title>
+    <title>Pick Lunch Menu</title>
   </head>
   <body>
     <div id="deviceready" class="blink">
       <p class="event listening">Connecting to Device</p>
       <p class="event received">Device is Ready</p>
     </div>
-    <ons-tabbar>
-      <ons-tab label="Tab 1" page="tab1.html" active></ons-tab>
-      <ons-tab label="Tab 2" page="tab2.html"></ons-tab>
-    </ons-tabbar>
+    <ons-navigator id="myNavigator" page="top.html"></ons-navigator>
+    <ons-template id="top.html">
+      <ons-page id="top">
 
-    <ons-template id="tab1.html">
-      <ons-page>
-        <h1>Hello OnsenUI</h1>
-        <ons-toolbar>
-          <div class="center">Tab 1</div>
-        </ons-toolbar>
+        <p>今日のお昼は何にしよう？</p>
 
-        <p style="text-align: center;">
-          This is the first page.
-        </p>
+        <ons-button id="push-button">Push page</ons-button>
       </ons-page>
     </ons-template>
 
-    <ons-template id="tab2.html">
-      <ons-page>
-        <ons-toolbar>
-          <div class="center">Tab 2</div>
-        </ons-toolbar>
+    <ons-template id="settings.html">
+      <ons-page id="settings">
+        <ons-tabbar>
+          <ons-tab label="メニュー" page="menu.html" active></ons-tab>
+          <ons-tab label="カテゴリ" page="category.html"></ons-tab>
+        </ons-tabbar>
 
-        <p style="text-align: center;">
-          This is the second page.
-        </p>
+        <ons-template id="menu.html">
+          <ons-page>
+            <ons-toolbar>
+              <div class="left"><ons-back-button>Back</ons-back-button></div>
+              <div class="center">メニュー登録</div>
+            </ons-toolbar>
+          </ons-page>
+        </ons-template>
+
+        <ons-template id="category.html">
+          <ons-page>
+            <ons-toolbar>
+              <div class="left"><ons-back-button>Back</ons-back-button></div>
+              <div class="center">カテゴリ登録</div>
+            </ons-toolbar>
+          </ons-page>
+        </ons-template>
       </ons-page>
     </ons-template>
+
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
   </body>

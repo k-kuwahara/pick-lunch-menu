@@ -17,18 +17,20 @@
  * under the License.
  */
 var app = {
-   // Application Constructor
    initialize: function() {
       document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
-      document.addEventListener('init', function(event) {
+      document.addEventListener('init', (event) => {
          var page = event.target;
 
          if (page.id === 'top') {
-            page.querySelector('#push-button').onclick = function() {
-               document.querySelector('#myNavigator').pushPage('settings.html', {data: {title: 'Page 2'}});
-            };
-         } else if (page.id === 'settings') {
-            page.querySelector('ons-toolbar .center').innerHTML = page.data.title;
+            page.querySelector('#push-button').onclick = () => {
+               document.querySelector('#myNavigator').pushPage('settings.html', {data: {}})
+            }
+         }
+         else if (page.id === 'settings') {
+            document.querySelector('.back-button').onclick = () => {
+               document.querySelector('#myNavigator').popPage('settings.html')
+            }
          }
       });
    },
