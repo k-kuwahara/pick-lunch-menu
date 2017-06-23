@@ -40,10 +40,6 @@ module.exports = [
             }
          ]
       },
-      resolve: {
-         extensions: ['.js']
-      },
-      devtool: 'cheap-module-source-map',
    },
    {
       entry: glob.sync('./www/src/scss/*.scss'),
@@ -78,9 +74,9 @@ module.exports = [
             }
          ]
       },
-      devtool: 'cheap-module-source-map',
       plugins: [
          new ExtractTextPlugin('app.bundle.css')
       ]
    }
 ]
+
