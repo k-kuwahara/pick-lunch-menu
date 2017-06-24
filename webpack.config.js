@@ -6,8 +6,7 @@ const path = require('path'),
 module.exports = [
    {
       entry: [
-         './www/src/js/index.js',
-         './www/src/js/onsenui.js'
+         './www/src/js/index.js'
       ],
       output: {
          path: path.resolve(`${__dirname}/www/js/`),
@@ -39,7 +38,7 @@ module.exports = [
                }
             }
          ]
-      },
+      }
    },
    {
       entry: glob.sync('./www/src/scss/*.scss'),

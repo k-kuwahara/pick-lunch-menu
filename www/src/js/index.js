@@ -1,4 +1,3 @@
-
 const app = {
    initialize: () => {
       document.addEventListener('deviceready', app.onDeviceReady.bind(this), false);
@@ -40,16 +39,15 @@ const app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
-        console.info('%cdeviceready!!', 'color: #008080; font-size: 20px;')
 
-        sqlitePlugin.selfTest(function() {
-              // テスト成功
-              alert('success')
-           },
-           function(error) {
-              // プラグインテスト失敗
-              alert('error')
-           });
+        // sqlitePlugin.selfTest(function() {
+        //       // テスト成功
+        //       alert('success')
+        //    },
+        //    function(error) {
+        //       // プラグインテスト失敗
+        //       alert('error')
+        //    });
     },
 
     // Update DOM on a Received Event
