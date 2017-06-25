@@ -74,9 +74,7 @@ h1 {
   -webkit-animation: fade 3000ms infinite; }
 
 .nav-header {
-  background-color: #FF9933;
-  position: fixed;
-  top: 50px; }
+  background-color: #FF9933; }
   .nav-header .toolbar__title {
     text-align: center;
     color: #330000;
