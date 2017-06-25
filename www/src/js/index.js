@@ -1,6 +1,6 @@
 const app = {
    initialize: () => {
-      document.addEventListener('deviceready', app.onDeviceReady.bind(this), false);
+      document.addEventListener('deviceready', app.onDeviceReady, false);
       document.addEventListener('init', (event) => {
          const page = event.target;
 
