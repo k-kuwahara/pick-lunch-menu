@@ -1,3 +1,16 @@
 page-home {
-
+	.toolbar-background-ios {
+		background-color: #ffbb00;
+	}
+	.toolbar-title-ios {
+		color: #330000;
+		font-weight: 700;
+		font-size: 1.9rem;
+	}
+	#edit {
+		position: absolute;
+		top: 0;
+		right: 0;
+		height: 2.2em;
+	}
 }
