@@ -1,8 +1,8 @@
 page-home {
-	.toolbar-background-ios {
+	.toolbar-background {
 		background-color: #ffbb00;
 	}
-	.toolbar-title-ios {
+	.toolbar-title {
 		color: #330000;
 		font-weight: 700;
 		font-size: 1.9rem;
@@ -12,5 +12,10 @@ page-home {
 		top: 0;
 		right: 0;
 		height: 2.2em;
+	}
+	.show-menu {
+		background-color: #ffbb00;
+		color: #330000;
+		border: 1px solid #330000;
 	}
 }

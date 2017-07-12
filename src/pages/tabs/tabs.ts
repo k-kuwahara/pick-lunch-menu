@@ -8,10 +8,11 @@ import { CategoryPage } from '../settings/category';
 })
 export class TabsPage {
 
-  tab1Root = MenuPage;
-  tab2Root = CategoryPage;
+  tab1Root:any;
+  tab2Root:any;
 
   constructor() {
-
+    this.tab1Root = MenuPage;
+    this.tab2Root = CategoryPage;
   }
 }
