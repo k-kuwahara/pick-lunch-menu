@@ -3,16 +3,23 @@ import { NavController, AlertController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
 import { TabsPage } from '../tabs/tabs';
+// import { StoreService } from '../store.service';
 
 
 @Component({
    selector: 'page-home',
    templateUrl: 'home.html'
 })
+
 export class HomePage {
    items: object[] = [];
 
-   constructor(public alertCtrl: AlertController, public nav: NavController, private my_storage: Storage) {
+   constructor(
+      public alertCtrl: AlertController,
+      public nav: NavController,
+      private my_storage: Storage
+      // private store_service: StoreService
+   ) {
       this.my_storage.set('category', [
          { key: 1, name: '和食'},
          { key: 2, name: '中華'},
