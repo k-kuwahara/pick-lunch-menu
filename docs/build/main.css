@@ -25222,6 +25222,23 @@ page-home .show-menu {
   border: 1px solid #330000;
 }
 
+page-category ion-header .toolbar-background {
+  background-color: #ffbb00;
+}
+
+page-category ion-header .toolbar-title {
+  color: #330000;
+  font-weight: 700;
+  font-size: 1.9rem;
+}
+
+page-category ion-header .back-button {
+  display: block;
+  background: #f4f4f4;
+  color: #000;
+  font-weight: 300;
+}
+
 page-menu ion-header .toolbar-background {
   background-color: #ffbb00;
 }
@@ -25233,6 +25250,7 @@ page-menu ion-header .toolbar-title {
 }
 
 page-menu ion-header .back-button {
+  display: block;
   background: #f4f4f4;
   color: #000;
   font-weight: 300;
