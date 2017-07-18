@@ -25211,9 +25211,9 @@ page-home .toolbar-title {
 
 page-home #edit {
   position: absolute;
-  top: 0;
+  bottom: 0;
   right: 0;
-  height: 2.2em;
+  height: 2.1em;
 }
 
 page-home .show-menu {

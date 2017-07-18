@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
-import { MenuPage } from '../settings/menu';
+import { TabsPage } from '../tabs/tabs';
 
 
 @Component({
@@ -33,6 +33,6 @@ export class HomePage {
    }
 
    open_settings_page() {
-      this.nav.push(MenuPage);
+      this.nav.push(TabsPage);
    }
 }

@@ -6,13 +6,15 @@ import { CategoryPage } from '../settings/category';
 @Component({
   templateUrl: 'tabs.html'
 })
+
 export class TabsPage {
 
-  tab1Root:any;
-  tab2Root:any;
+   tab1:any;
+   tab2:any;
+   rootPage = MenuPage;
 
-  constructor() {
-    this.tab1Root = MenuPage;
-    this.tab2Root = CategoryPage;
-  }
+   constructor() {
+      this.tab1 = MenuPage;
+      this.tab2 = CategoryPage;
+   }
 }
