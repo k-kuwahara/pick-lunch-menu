@@ -25199,11 +25199,11 @@ ion-navbar.toolbar {
   }
 }
 
-page-home .toolbar-background-ios {
+page-home .toolbar-background {
   background-color: #ffbb00;
 }
 
-page-home .toolbar-title-ios {
+page-home .toolbar-title {
   color: #330000;
   font-weight: 700;
   font-size: 1.9rem;
@@ -25214,4 +25214,26 @@ page-home #edit {
   top: 0;
   right: 0;
   height: 2.2em;
+}
+
+page-home .show-menu {
+  background-color: #ffbb00;
+  color: #330000;
+  border: 1px solid #330000;
+}
+
+page-menu ion-header .toolbar-background {
+  background-color: #ffbb00;
+}
+
+page-menu ion-header .toolbar-title {
+  color: #330000;
+  font-weight: 700;
+  font-size: 1.9rem;
+}
+
+page-menu ion-header .back-button {
+  background: #f4f4f4;
+  color: #000;
+  font-weight: 300;
 }
