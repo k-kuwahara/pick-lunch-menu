@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-navbar no-border-bottom>
+    <ion-title>
+      編集
+    </ion-title>
+  </ion-navbar>
+
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="pet">
+      <ion-segment-button value="menu">
+        メニュー
+      </ion-segment-button>
+      <ion-segment-button value="category">
+        カテゴリ
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div [ngSwitch]="pet">
+    <ion-list *ngSwitchCase="'menu'">
+      <h2>メニューを選択してください。</h2>
+      <ion-item>
+        <h2>Ruby</h2>
+      </ion-item>
+      <ion-item>
+        <h2>Oscar</h2>
+      </ion-item>
+      <ion-item>
+        <h2>Zoey</h2>
+      </ion-item>
+      <ion-item>
+        <h2>Otto</h2>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'category'">
+      <h2>カテゴリを選択してください。</h2>
+      <ion-item>
+        <h2>Luna</h2>
+      </ion-item>
+      <ion-item>
+        <h2>Milo</h2>
+      </ion-item>
+      <ion-item>
+        <h2>Bandit</h2>
+      </ion-item>
+      <ion-item>
+        <h2>Nala</h2>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

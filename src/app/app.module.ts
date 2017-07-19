@@ -4,9 +4,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { HomePage } from '../pages/home/home';
-import { MenuPage } from '../pages/settings/menu';
-import { CategoryPage } from '../pages/settings/category';
-import { TabsPage } from '../pages/tabs/tabs';
+import { SegmentPage } from '../pages/seg/segment';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -16,9 +14,7 @@ import { IonicStorageModule } from '@ionic/storage';
   declarations: [
     MyApp,
     HomePage,
-    MenuPage,
-    CategoryPage,
-    TabsPage
+    SegmentPage
   ],
   imports: [
     BrowserModule,
@@ -29,9 +25,7 @@ import { IonicStorageModule } from '@ionic/storage';
   entryComponents: [
     MyApp,
     HomePage,
-    MenuPage,
-    CategoryPage,
-    TabsPage
+    SegmentPage
   ],
   providers: [
     StatusBar,

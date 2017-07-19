@@ -20981,7 +20981,7 @@ function NavParams_tsickle_Closure_declarations() {
 /* unused harmony export MinLengthValidator */
 /* unused harmony export PatternValidator */
 /* unused harmony export RequiredValidator */
-/* unused harmony export FormBuilder */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return FormBuilder; });
 /* unused harmony export AbstractControl */
 /* unused harmony export FormArray */
 /* unused harmony export FormControl */
@@ -56394,7 +56394,7 @@ webpackEmptyAsyncContext.id = 99;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(91);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tabs_tabs__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__seg_segment__ = __webpack_require__(268);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -56436,13 +56436,13 @@ var HomePage = (function () {
         alert.present();
     };
     HomePage.prototype.open_settings_page = function () {
-        this.nav.push(__WEBPACK_IMPORTED_MODULE_3__tabs_tabs__["a" /* TabsPage */]);
+        this.nav.push(__WEBPACK_IMPORTED_MODULE_3__seg_segment__["a" /* SegmentPage */]);
     };
     return HomePage;
 }());
 HomePage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"/Users/k-kuwahara/desktop/programing/pick-lunch-menu/src/pages/home/home.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      メニューゲット\n    </ion-title>\n    <button ion-button (click)="open_settings_page()" id="edit" color="light">編集</button>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <h3>今日のお昼は何にしよう？</h3>\n\n  <button class="show-menu" ion-button round block (click)="show_menu()">メニュー表示!!</button>\n\n  <ion-list>\n    <ion-item>\n      <ion-label>カテゴリ</ion-label>\n      <ion-select [(ngModel)]="category">\n        <ion-option *ngFor="let item of items" value="{{ item.key }}">{{ item.name }}</ion-option>\n      </ion-select>\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/k-kuwahara/desktop/programing/pick-lunch-menu/src/pages/home/home.html"*/
+        selector: 'page-home',template:/*ion-inline-start:"/Users/k-kuwahara/desktop/programing/pick-lunch-menu/src/pages/home/home.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      メニュー取得\n    </ion-title>\n    <button ion-button (click)="open_settings_page()" id="edit" color="light"><ion-icon name="settings"></ion-icon></button>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <h3>今日のお昼は何にしよう？</h3>\n\n  <button class="show-menu" ion-button round block (click)="show_menu()">メニュー表示!!</button>\n\n  <ion-list>\n    <ion-item>\n      <ion-label>カテゴリ</ion-label>\n      <ion-select [(ngModel)]="category">\n        <ion-option *ngFor="let item of items" value="{{ item.key }}">{{ item.name }}</ion-option>\n      </ion-select>\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/k-kuwahara/desktop/programing/pick-lunch-menu/src/pages/home/home.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* AlertController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */],
@@ -56454,104 +56454,9 @@ HomePage = __decorate([
 //# sourceMappingURL=home.js.map
 
 /***/ }),
-/* 101 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CategoryPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var CategoryPage = (function () {
-    function CategoryPage() {
-    }
-    return CategoryPage;
-}());
-CategoryPage = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
-        selector: 'page-category',template:/*ion-inline-start:"/Users/k-kuwahara/desktop/programing/pick-lunch-menu/src/pages/settings/category.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>カテゴリ編集</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <h2>カテゴリを選択してください。</h2>\n</ion-content>\n'/*ion-inline-end:"/Users/k-kuwahara/desktop/programing/pick-lunch-menu/src/pages/settings/category.html"*/
-    }),
-    __metadata("design:paramtypes", [])
-], CategoryPage);
-
-//# sourceMappingURL=category.js.map
-
-/***/ }),
-/* 102 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MenuPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var MenuPage = (function () {
-    function MenuPage() {
-    }
-    return MenuPage;
-}());
-MenuPage = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
-        selector: 'page-menu',template:/*ion-inline-start:"/Users/k-kuwahara/desktop/programing/pick-lunch-menu/src/pages/settings/menu.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>メニュー編集</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <h2>メニューを選択してください。</h2>\n</ion-content>\n'/*ion-inline-end:"/Users/k-kuwahara/desktop/programing/pick-lunch-menu/src/pages/settings/menu.html"*/
-    }),
-    __metadata("design:paramtypes", [])
-], MenuPage);
-
-//# sourceMappingURL=menu.js.map
-
-/***/ }),
-/* 103 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__settings_menu__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__settings_category__ = __webpack_require__(101);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var TabsPage = (function () {
-    function TabsPage() {
-        this.tab1 = __WEBPACK_IMPORTED_MODULE_1__settings_menu__["a" /* MenuPage */];
-        this.tab2 = __WEBPACK_IMPORTED_MODULE_2__settings_category__["a" /* CategoryPage */];
-    }
-    return TabsPage;
-}());
-TabsPage = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({template:/*ion-inline-start:"/Users/k-kuwahara/desktop/programing/pick-lunch-menu/src/pages/tabs/tabs.html"*/'<ion-tabs>\n  <ion-tab [root]="tab1" tabTitle="メニュー" tabIcon="home"></ion-tab>\n  <ion-tab [root]="tab2" tabTitle="カテゴリ" tabIcon="information-circle"></ion-tab>\n</ion-tabs>\n'/*ion-inline-end:"/Users/k-kuwahara/desktop/programing/pick-lunch-menu/src/pages/tabs/tabs.html"*/
-    }),
-    __metadata("design:paramtypes", [])
-], TabsPage);
-
-//# sourceMappingURL=tabs.js.map
-
-/***/ }),
+/* 101 */,
+/* 102 */,
+/* 103 */,
 /* 104 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -74652,20 +74557,16 @@ webpackEmptyAsyncContext.id = 195;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(91);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(198);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(100);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_settings_menu__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_settings_category__ = __webpack_require__(101);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_tabs_tabs__ = __webpack_require__(103);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_status_bar__ = __webpack_require__(107);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_splash_screen__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_storage__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_seg_segment__ = __webpack_require__(268);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_status_bar__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_splash_screen__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_storage__ = __webpack_require__(108);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-
-
 
 
 
@@ -74685,26 +74586,22 @@ AppModule = __decorate([
         declarations: [
             __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */],
             __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */],
-            __WEBPACK_IMPORTED_MODULE_5__pages_settings_menu__["a" /* MenuPage */],
-            __WEBPACK_IMPORTED_MODULE_6__pages_settings_category__["a" /* CategoryPage */],
-            __WEBPACK_IMPORTED_MODULE_7__pages_tabs_tabs__["a" /* TabsPage */]
+            __WEBPACK_IMPORTED_MODULE_5__pages_seg_segment__["a" /* SegmentPage */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["a" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */]),
-            __WEBPACK_IMPORTED_MODULE_10__ionic_storage__["a" /* IonicStorageModule */].forRoot()
+            __WEBPACK_IMPORTED_MODULE_8__ionic_storage__["a" /* IonicStorageModule */].forRoot()
         ],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicApp */]],
         entryComponents: [
             __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */],
             __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */],
-            __WEBPACK_IMPORTED_MODULE_5__pages_settings_menu__["a" /* MenuPage */],
-            __WEBPACK_IMPORTED_MODULE_6__pages_settings_category__["a" /* CategoryPage */],
-            __WEBPACK_IMPORTED_MODULE_7__pages_tabs_tabs__["a" /* TabsPage */]
+            __WEBPACK_IMPORTED_MODULE_5__pages_seg_segment__["a" /* SegmentPage */]
         ],
         providers: [
-            __WEBPACK_IMPORTED_MODULE_8__ionic_native_status_bar__["a" /* StatusBar */],
-            __WEBPACK_IMPORTED_MODULE_9__ionic_native_splash_screen__["a" /* SplashScreen */],
+            __WEBPACK_IMPORTED_MODULE_6__ionic_native_status_bar__["a" /* StatusBar */],
+            __WEBPACK_IMPORTED_MODULE_7__ionic_native_splash_screen__["a" /* SplashScreen */],
             { provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicErrorHandler */] }
         ]
     })
@@ -115107,6 +115004,45 @@ function toSubscriber(nextOrObserver, error, complete) {
 }
 exports.toSubscriber = toSubscriber;
 //# sourceMappingURL=toSubscriber.js.map
+
+/***/ }),
+/* 268 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SegmentPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(15);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+var SegmentPage = (function () {
+    function SegmentPage(fb) {
+        this.pet = "puppies";
+    }
+    return SegmentPage;
+}());
+SegmentPage = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
+        selector: 'page-segment',template:/*ion-inline-start:"/Users/k-kuwahara/desktop/programing/pick-lunch-menu/src/pages/seg/segment.html"*/'<ion-header>\n  <ion-navbar no-border-bottom>\n    <ion-title>\n      編集\n    </ion-title>\n  </ion-navbar>\n\n  <ion-toolbar no-border-top>\n    <ion-segment [(ngModel)]="pet">\n      <ion-segment-button value="menu">\n        メニュー\n      </ion-segment-button>\n      <ion-segment-button value="category">\n        カテゴリ\n      </ion-segment-button>\n    </ion-segment>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n\n  <div [ngSwitch]="pet">\n    <ion-list *ngSwitchCase="\'menu\'">\n      <h2>メニューを選択してください。</h2>\n      <ion-item>\n        <h2>Ruby</h2>\n      </ion-item>\n      <ion-item>\n        <h2>Oscar</h2>\n      </ion-item>\n      <ion-item>\n        <h2>Zoey</h2>\n      </ion-item>\n      <ion-item>\n        <h2>Otto</h2>\n      </ion-item>\n    </ion-list>\n\n    <ion-list *ngSwitchCase="\'category\'">\n      <h2>カテゴリを選択してください。</h2>\n      <ion-item>\n        <h2>Luna</h2>\n      </ion-item>\n      <ion-item>\n        <h2>Milo</h2>\n      </ion-item>\n      <ion-item>\n        <h2>Bandit</h2>\n      </ion-item>\n      <ion-item>\n        <h2>Nala</h2>\n      </ion-item>\n    </ion-list>\n  </div>\n</ion-content>'/*ion-inline-end:"/Users/k-kuwahara/desktop/programing/pick-lunch-menu/src/pages/seg/segment.html"*/
+    }),
+    __param(0, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["g" /* Inject */])(__WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* FormBuilder */])),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* FormBuilder */]) === "function" && _a || Object])
+], SegmentPage);
+
+var _a;
+//# sourceMappingURL=segment.js.map
 
 /***/ })
 /******/ ]);
