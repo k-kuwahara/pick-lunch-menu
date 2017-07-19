@@ -25203,6 +25203,10 @@ page-home .toolbar-background {
   background-color: #ffbb00;
 }
 
+page-home .title {
+  padding: 0 80px 1px;
+}
+
 page-home .toolbar-title {
   color: #330000;
   font-weight: 700;
@@ -25222,36 +25226,28 @@ page-home .show-menu {
   border: 1px solid #330000;
 }
 
-page-category ion-header .toolbar-background {
+page-segment .toolbar-background {
   background-color: #ffbb00;
 }
 
-page-category ion-header .toolbar-title {
+page-segment .toolbar-title {
   color: #330000;
   font-weight: 700;
   font-size: 1.9rem;
 }
 
-page-category ion-header .back-button {
+page-segment .back-button {
   display: block;
   background: #f4f4f4;
   color: #000;
   font-weight: 300;
 }
 
-page-menu ion-header .toolbar-background {
-  background-color: #ffbb00;
-}
-
-page-menu ion-header .toolbar-title {
+page-segment .toolbar-content .segment-button {
   color: #330000;
-  font-weight: 700;
-  font-size: 1.9rem;
+  border-color: #330000;
 }
 
-page-menu ion-header .back-button {
-  display: block;
-  background: #f4f4f4;
-  color: #000;
-  font-weight: 300;
+page-segment .toolbar-content .segment-button.segment-activated {
+  background-color: #3B1109;
 }
