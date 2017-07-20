@@ -6,7 +6,7 @@
   </ion-navbar>
 
   <ion-toolbar no-border-top>
-    <ion-segment [(ngModel)]="pet">
+    <ion-segment [(ngModel)]="set">
       <ion-segment-button value="menu">
         メニュー
       </ion-segment-button>
@@ -18,37 +18,20 @@
 </ion-header>
 
 <ion-content padding>
-
-  <div [ngSwitch]="pet">
+  <div [ngSwitch]="set">
     <ion-list *ngSwitchCase="'menu'">
-      <h2>メニューを選択してください。</h2>
-      <ion-item>
-        <h2>Ruby</h2>
-      </ion-item>
-      <ion-item>
-        <h2>Oscar</h2>
-      </ion-item>
-      <ion-item>
-        <h2>Zoey</h2>
-      </ion-item>
-      <ion-item>
-        <h2>Otto</h2>
+      <h1>メニュー</h1>
+      <ion-item *ngFor="let menu of menus">
+        <h2>{{ menu.name }}</h2>
+        <button ion-button (click)="open_modal(menu)" class="edit" color="light">編集</button>
       </ion-item>
     </ion-list>
 
     <ion-list *ngSwitchCase="'category'">
-      <h2>カテゴリを選択してください。</h2>
-      <ion-item>
-        <h2>Luna</h2>
-      </ion-item>
-      <ion-item>
-        <h2>Milo</h2>
-      </ion-item>
-      <ion-item>
-        <h2>Bandit</h2>
-      </ion-item>
-      <ion-item>
-        <h2>Nala</h2>
+      <h1>カテゴリ</h1>
+      <ion-item *ngFor="let cat of categories">
+        <h2>{{ cat.name }}</h2>
+        <button ion-button (click)="open_modal(cat)" class="edit" color="light">編集</button>
       </ion-item>
     </ion-list>
   </div>

@@ -21,7 +21,6 @@ export class StoreService implements OnInit {
             this.menus = MENUS;
          }
          else {
-            this.storage.set('menu', MENUS);
             this.menus = val
          }
       })
@@ -33,6 +32,7 @@ export class StoreService implements OnInit {
             this.categories = CATEGORIES;
          }
          else {
+            this.storage.set('category', CATEGORIES);
             this.categories = val
          }
       })

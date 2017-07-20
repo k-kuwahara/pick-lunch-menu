@@ -5,6 +5,7 @@ import { MyApp } from './app.component';
 
 import { HomePage } from '../pages/home/home';
 import { SegmentPage } from '../pages/seg/segment';
+import { ModalPage } from '../pages/seg/modal-page';
 import { StoreService } from '../pages/store.service';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -15,7 +16,8 @@ import { IonicStorageModule } from '@ionic/storage';
   declarations: [
     MyApp,
     HomePage,
-    SegmentPage
+    SegmentPage,
+    ModalPage
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,8 @@ import { IonicStorageModule } from '@ionic/storage';
   entryComponents: [
     MyApp,
     HomePage,
-    SegmentPage
+    SegmentPage,
+    ModalPage
   ],
   providers: [
     StatusBar,
