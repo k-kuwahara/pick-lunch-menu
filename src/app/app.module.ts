@@ -5,6 +5,7 @@ import { MyApp } from './app.component';
 
 import { HomePage } from '../pages/home/home';
 import { SegmentPage } from '../pages/seg/segment';
+import { StoreService } from '../pages/store.service';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -30,6 +31,7 @@ import { IonicStorageModule } from '@ionic/storage';
   providers: [
     StatusBar,
     SplashScreen,
+    StoreService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

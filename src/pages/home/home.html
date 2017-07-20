@@ -8,15 +8,17 @@
 </ion-header>
 
 <ion-content padding>
-  <h2>今日のお昼は何にしよう？</h2>
+  <h1>今日のお昼は何にしよう？</h1>
 
   <button class="show-menu" ion-button round block (click)="show_menu()">メニュー表示!!</button>
 
   <ion-list>
     <ion-item>
-      <ion-label>カテゴリ</ion-label>
-      <ion-select [(ngModel)]="category">
-        <ion-option *ngFor="let item of items" value="{{ item.key }}">{{ item.name }}</ion-option>
+      <ion-label>カテゴリで絞る</ion-label>
+      <ion-select [(ngModel)]="category" (ionChange)="select_category($event)" multiple="true">
+        <ion-option *ngFor="let item of categories" value="{{ item.id }}">
+          {{ item.name }}
+        </ion-option>
       </ion-select>
     </ion-item>
   </ion-list>

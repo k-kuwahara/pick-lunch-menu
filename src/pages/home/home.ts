@@ -1,38 +1,54 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
-import { Storage } from '@ionic/storage';
 
-import { SegmentPage } from '../seg/segment';
+import { SegmentPage }  from '../seg/segment';
+import { StoreService } from '../store.service';
 
 @Component({
    selector: 'page-home',
    templateUrl: 'home.html'
 })
 
-export class HomePage {
+export class HomePage implements OnInit {
    categories: object[] = [];
+   select: string[] = [];
 
    constructor(
-      public alert_ctrl: AlertController,
+      public alerCtrl: AlertController,
       public nav: NavController,
-      private my_storage: Storage
-   ) {
-      this.my_storage.set('category', [
-         { key: 1, name: '和食'},
-         { key: 2, name: '中華'},
-         { key: 3, name: '麺類'}
-      ]);
-      this.my_storage.get('category').then((val) => {
-         this.categories = val;
-      });
+      public store_service: StoreService ) {
+   }
+
+   ngOnInit() {
+      // storageからの読み込みが非同期処理で行われるため
+      setTimeout(() => {
+         this.categories = this.store_service.get_category();
+      }, 300);
+      // カテゴリが取得できていなかったら再度実行
+      if (this.categories.length == 0) this.store_service.get_category();
+   }
+
+   select_category(e) {
+      this.select = e;
    }
 
    show_menu() {
-      let key:number;
-      key  = Math.floor(Math.random() * this.categories.length);
+      let menu: object;
+      if (this.select.length > 0) {
+         let menus: object[] = this.store_service.get_menu_with_category(this.select);
+         let key:number
+            = Math.floor(Math.random() * menus.length);
+         menu = menus[key];
+      }
+      else {
+         let menus: object[] = this.store_service.get_all_menu();
+         let key:number
+            = Math.floor(Math.random() * menus.length);
+         menu = menus[key];
+      }
 
-      let alert = this.alert_ctrl.create({
-         title: this.categories[key]['name'],
+      let alert = this.alerCtrl.create({
+         title: menu['name'],
          subTitle: 'はどうですか？',
          buttons: ['OK']
        });

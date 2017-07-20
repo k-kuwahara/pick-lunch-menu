@@ -4163,8 +4163,9 @@ ion-alert input {
 }
 
 .alert-ios .alert-title {
-  margin-top: 8px;
-  font-size: 17px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  font-size: 22px;
   font-weight: 600;
 }
 
@@ -25201,7 +25202,7 @@ ion-navbar.toolbar {
 
 page-home h1, page-home h2, page-home h3 {
   text-align: center;
-  margin: 25px auto;
+  padding: 30px 0;
 }
 
 page-home .toolbar-background {

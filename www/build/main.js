@@ -56393,8 +56393,8 @@ webpackEmptyAsyncContext.id = 99;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(91);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__seg_segment__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__seg_segment__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__store_service__ = __webpack_require__(268);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -56409,45 +56409,58 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var HomePage = (function () {
-    function HomePage(alert_ctrl, nav, my_storage) {
-        var _this = this;
-        this.alert_ctrl = alert_ctrl;
+    function HomePage(alerCtrl, nav, store_service) {
+        this.alerCtrl = alerCtrl;
         this.nav = nav;
-        this.my_storage = my_storage;
+        this.store_service = store_service;
         this.categories = [];
-        this.my_storage.set('category', [
-            { key: 1, name: '和食' },
-            { key: 2, name: '中華' },
-            { key: 3, name: '麺類' }
-        ]);
-        this.my_storage.get('category').then(function (val) {
-            _this.categories = val;
-        });
+        this.select = [];
     }
+    HomePage.prototype.ngOnInit = function () {
+        var _this = this;
+        // storageからの読み込みが非同期処理で行われるため
+        setTimeout(function () {
+            _this.categories = _this.store_service.get_category();
+        }, 300);
+        // カテゴリが取得できていなかったら再度実行
+        if (this.categories.length == 0)
+            this.store_service.get_category();
+    };
+    HomePage.prototype.select_category = function (e) {
+        this.select = e;
+    };
     HomePage.prototype.show_menu = function () {
-        var key;
-        key = Math.floor(Math.random() * this.categories.length);
-        var alert = this.alert_ctrl.create({
-            title: this.categories[key]['name'],
+        var menu;
+        if (this.select.length > 0) {
+            var menus = this.store_service.get_menu_with_category(this.select);
+            var key = Math.floor(Math.random() * menus.length);
+            menu = menus[key];
+        }
+        else {
+            var menus = this.store_service.get_all_menu();
+            var key = Math.floor(Math.random() * menus.length);
+            menu = menus[key];
+        }
+        var alert = this.alerCtrl.create({
+            title: menu['name'],
             subTitle: 'はどうですか？',
             buttons: ['OK']
         });
         alert.present();
     };
     HomePage.prototype.open_settings_page = function () {
-        this.nav.push(__WEBPACK_IMPORTED_MODULE_3__seg_segment__["a" /* SegmentPage */]);
+        this.nav.push(__WEBPACK_IMPORTED_MODULE_2__seg_segment__["a" /* SegmentPage */]);
     };
     return HomePage;
 }());
 HomePage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"/Users/k-kuwahara/desktop/programing/pick-lunch-menu/src/pages/home/home.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      メニュー取得\n    </ion-title>\n    <button ion-button (click)="open_settings_page()" id="edit" color="light"><ion-icon name="settings"></ion-icon></button>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <h2>今日のお昼は何にしよう？</h2>\n\n  <button class="show-menu" ion-button round block (click)="show_menu()">メニュー表示!!</button>\n\n  <ion-list>\n    <ion-item>\n      <ion-label>カテゴリ</ion-label>\n      <ion-select [(ngModel)]="category">\n        <ion-option *ngFor="let item of items" value="{{ item.key }}">{{ item.name }}</ion-option>\n      </ion-select>\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/k-kuwahara/desktop/programing/pick-lunch-menu/src/pages/home/home.html"*/
+        selector: 'page-home',template:/*ion-inline-start:"/Users/k-kuwahara/desktop/programing/pick-lunch-menu/src/pages/home/home.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      メニュー取得\n    </ion-title>\n    <button ion-button (click)="open_settings_page()" id="edit" color="light"><ion-icon name="settings"></ion-icon></button>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <h1>今日のお昼は何にしよう？</h1>\n\n  <button class="show-menu" ion-button round block (click)="show_menu()">メニュー表示!!</button>\n\n  <ion-list>\n    <ion-item>\n      <ion-label>カテゴリで絞る</ion-label>\n      <ion-select [(ngModel)]="category" (ionChange)="select_category($event)" multiple="true">\n        <ion-option *ngFor="let item of categories" value="{{ item.id }}">\n          {{ item.name }}\n        </ion-option>\n      </ion-select>\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/k-kuwahara/desktop/programing/pick-lunch-menu/src/pages/home/home.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* AlertController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* AlertController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__store_service__["a" /* StoreService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__store_service__["a" /* StoreService */]) === "function" && _c || Object])
 ], HomePage);
 
+var _a, _b, _c;
 //# sourceMappingURL=home.js.map
 
 /***/ }),
@@ -57132,7 +57145,7 @@ StatusBar = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__storage__ = __webpack_require__(202);
 /* unused harmony reexport StorageConfigToken */
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__storage__["b"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__storage__["a"]; });
 
 
 
@@ -57144,8 +57157,8 @@ var IonicStorageModule = (function () {
         return {
             ngModule: IonicStorageModule,
             providers: [
-                { provide: __WEBPACK_IMPORTED_MODULE_1__storage__["a" /* StorageConfigToken */], useValue: storageConfig },
-                { provide: __WEBPACK_IMPORTED_MODULE_1__storage__["b" /* Storage */], useFactory: __WEBPACK_IMPORTED_MODULE_1__storage__["c" /* provideStorage */], deps: [__WEBPACK_IMPORTED_MODULE_1__storage__["a" /* StorageConfigToken */]] },
+                { provide: __WEBPACK_IMPORTED_MODULE_1__storage__["b" /* StorageConfigToken */], useValue: storageConfig },
+                { provide: __WEBPACK_IMPORTED_MODULE_1__storage__["a" /* Storage */], useFactory: __WEBPACK_IMPORTED_MODULE_1__storage__["c" /* provideStorage */], deps: [__WEBPACK_IMPORTED_MODULE_1__storage__["b" /* StorageConfigToken */]] },
             ]
         };
     };
@@ -74590,15 +74603,17 @@ webpackEmptyAsyncContext.id = 193;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(196);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(100);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_seg_segment__ = __webpack_require__(101);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_status_bar__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_splash_screen__ = __webpack_require__(104);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_storage__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_store_service__ = __webpack_require__(268);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_status_bar__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_splash_screen__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_storage__ = __webpack_require__(106);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -74623,7 +74638,7 @@ AppModule = __decorate([
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["a" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */]),
-            __WEBPACK_IMPORTED_MODULE_8__ionic_storage__["a" /* IonicStorageModule */].forRoot()
+            __WEBPACK_IMPORTED_MODULE_9__ionic_storage__["a" /* IonicStorageModule */].forRoot()
         ],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicApp */]],
         entryComponents: [
@@ -74632,8 +74647,9 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_5__pages_seg_segment__["a" /* SegmentPage */]
         ],
         providers: [
-            __WEBPACK_IMPORTED_MODULE_6__ionic_native_status_bar__["a" /* StatusBar */],
-            __WEBPACK_IMPORTED_MODULE_7__ionic_native_splash_screen__["a" /* SplashScreen */],
+            __WEBPACK_IMPORTED_MODULE_7__ionic_native_status_bar__["a" /* StatusBar */],
+            __WEBPACK_IMPORTED_MODULE_8__ionic_native_splash_screen__["a" /* SplashScreen */],
+            __WEBPACK_IMPORTED_MODULE_6__pages_store_service__["a" /* StoreService */],
             { provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicErrorHandler */] }
         ]
     })
@@ -101852,9 +101868,9 @@ var IonicNativePlugin = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return Storage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Storage; });
 /* unused harmony export getDefaultConfig */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StorageConfigToken; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return StorageConfigToken; });
 /* harmony export (immutable) */ __webpack_exports__["c"] = provideStorage;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_localforage__ = __webpack_require__(238);
@@ -115036,6 +115052,150 @@ function toSubscriber(nextOrObserver, error, complete) {
 }
 exports.toSubscriber = toSubscriber;
 //# sourceMappingURL=toSubscriber.js.map
+
+/***/ }),
+/* 266 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CATEGORIES; });
+var CATEGORIES = [
+    { id: 1, name: '和食' },
+    { id: 2, name: '中華' },
+    { id: 3, name: 'イタリアン' },
+    { id: 4, name: '麺類' },
+    { id: 5, name: '肉' },
+    { id: 6, name: '魚' },
+    { id: 7, name: 'その他' }
+];
+//# sourceMappingURL=category-list.js.map
+
+/***/ }),
+/* 267 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MENUS; });
+var MENUS = [
+    { category_id: 1, name: '定食' },
+    { category_id: 1, name: '丼' },
+    { category_id: 1, name: '天ぷら' },
+    { category_id: 1, name: '寿司' },
+    { category_id: 2, name: 'エビチリ' },
+    { category_id: 2, name: '中華丼' },
+    { category_id: 2, name: '酢豚' },
+    { category_id: 2, name: 'チンジャオロース' },
+    { category_id: 2, name: '八宝菜' },
+    { category_id: 3, name: 'ピザ' },
+    { category_id: 3, name: 'パスタ' },
+    { category_id: 3, name: 'ペンネ' },
+    { category_id: 3, name: 'ラザニア' },
+    { category_id: 3, name: 'リゾット' },
+    { category_id: 3, name: 'ミネストローネ' },
+    { category_id: 4, name: 'うどん' },
+    { category_id: 4, name: 'そば' },
+    { category_id: 4, name: '油そば' },
+    { category_id: 4, name: 'ラーメン' },
+    { category_id: 4, name: 'つけ麺' },
+    { category_id: 4, name: '刀削麺' },
+    { category_id: 4, name: '担々麺' },
+    { category_id: 4, name: 'パスタ' },
+    { category_id: 5, name: 'とんかつ' },
+    { category_id: 5, name: '豚の生姜焼き' },
+    { category_id: 5, name: '唐揚げ' },
+    { category_id: 5, name: '竜田揚げ' },
+    { category_id: 6, name: '○○の味噌煮' },
+    { category_id: 6, name: '○○の塩焼き' },
+    { category_id: 6, name: '○○の刺し身' },
+    { category_id: 6, name: '○○のフライ' },
+    { category_id: 6, name: '○○の西京焼き' },
+    { category_id: 7, name: 'カレー' },
+    { category_id: 7, name: 'インドカレー' },
+    { category_id: 7, name: 'オムライス' },
+];
+//# sourceMappingURL=menu-list.js.map
+
+/***/ }),
+/* 268 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StoreService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_storage__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__dataset_menu_list__ = __webpack_require__(267);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__dataset_category_list__ = __webpack_require__(266);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var StoreService = (function () {
+    function StoreService(storage) {
+        this.storage = storage;
+        this.menus = [];
+        this.categories = [];
+        this.ngOnInit();
+    }
+    StoreService.prototype.ngOnInit = function () {
+        var _this = this;
+        // メニューの確認
+        this.storage.get('menu').then(function (val) {
+            if (val == null) {
+                _this.storage.set('menu', __WEBPACK_IMPORTED_MODULE_2__dataset_menu_list__["a" /* MENUS */]);
+                _this.menus = __WEBPACK_IMPORTED_MODULE_2__dataset_menu_list__["a" /* MENUS */];
+            }
+            else {
+                _this.storage.set('menu', __WEBPACK_IMPORTED_MODULE_2__dataset_menu_list__["a" /* MENUS */]);
+                _this.menus = val;
+            }
+        });
+        // カテゴリの確認
+        this.storage.get('category').then(function (val) {
+            if (val == null) {
+                _this.storage.set('category', __WEBPACK_IMPORTED_MODULE_3__dataset_category_list__["a" /* CATEGORIES */]);
+                _this.categories = __WEBPACK_IMPORTED_MODULE_3__dataset_category_list__["a" /* CATEGORIES */];
+            }
+            else {
+                _this.categories = val;
+            }
+        });
+    };
+    StoreService.prototype.get_menu = function (key) {
+        return this.menus[key];
+    };
+    StoreService.prototype.get_menu_with_category = function (selects) {
+        var ret = [];
+        this.menus.forEach(function (item, index) {
+            if (selects.indexOf(item['category_id'].toString()) >= 0) {
+                ret.push(item);
+            }
+        });
+        return ret;
+    };
+    StoreService.prototype.get_all_menu = function () {
+        return this.menus;
+    };
+    StoreService.prototype.get_category = function () {
+        return this.categories;
+    };
+    return StoreService;
+}());
+StoreService = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["l" /* Injectable */])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ionic_storage__["b" /* Storage */]) === "function" && _a || Object])
+], StoreService);
+
+var _a;
+//# sourceMappingURL=store.service.js.map
 
 /***/ })
 /******/ ]);
