@@ -3,8 +3,6 @@ import { NavController, AlertController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
 import { SegmentPage } from '../seg/segment';
-// import { StoreService } from '../store.service';
-
 
 @Component({
    selector: 'page-home',
@@ -12,13 +10,12 @@ import { SegmentPage } from '../seg/segment';
 })
 
 export class HomePage {
-   items: object[] = [];
+   categories: object[] = [];
 
    constructor(
-      public alertCtrl: AlertController,
+      public alert_ctrl: AlertController,
       public nav: NavController,
       private my_storage: Storage
-      // private store_service: StoreService
    ) {
       this.my_storage.set('category', [
          { key: 1, name: '和食'},
@@ -26,13 +23,16 @@ export class HomePage {
          { key: 3, name: '麺類'}
       ]);
       this.my_storage.get('category').then((val) => {
-         this.items = val;
+         this.categories = val;
       });
    }
 
    show_menu() {
-      let alert = this.alertCtrl.create({
-         title: 'New Friend!',
+      let key:number;
+      key  = Math.floor(Math.random() * this.categories.length);
+
+      let alert = this.alert_ctrl.create({
+         title: this.categories[key]['name'],
          subTitle: 'はどうですか？',
          buttons: ['OK']
        });

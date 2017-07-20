@@ -1,4 +1,7 @@
 page-home {
+	h1, h2, h3 {
+		text-align: center;
+	}
 	.toolbar-background {
 		background-color: #ffbb00;
 	}
@@ -20,5 +23,7 @@ page-home {
 		background-color: #ffbb00;
 		color: #330000;
 		border: 1px solid #330000;
+		margin: 20px auto;
+		width: 80%;
 	}
 }
