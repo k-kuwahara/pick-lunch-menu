@@ -4163,8 +4163,9 @@ ion-alert input {
 }
 
 .alert-ios .alert-title {
-  margin-top: 8px;
-  font-size: 17px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  font-size: 22px;
   font-weight: 600;
 }
 
@@ -25199,6 +25200,11 @@ ion-navbar.toolbar {
   }
 }
 
+page-home h1, page-home h2, page-home h3 {
+  text-align: center;
+  padding: 30px 0;
+}
+
 page-home .toolbar-background {
   background-color: #ffbb00;
 }
@@ -25224,6 +25230,13 @@ page-home .show-menu {
   background-color: #ffbb00;
   color: #330000;
   border: 1px solid #330000;
+  margin: 20px auto;
+  width: 80%;
+}
+
+page-home .show-menu.activated {
+  background-color: #330000;
+  color: #fff;
 }
 
 page-segment .toolbar-background {
@@ -25246,6 +25259,7 @@ page-segment .back-button {
 page-segment .toolbar-content .segment-button {
   color: #330000;
   border-color: #330000;
+  background-color: #fff;
 }
 
 page-segment .toolbar-content .segment-button.segment-activated {
