@@ -25201,6 +25201,7 @@ ion-navbar.toolbar {
 
 page-home h1, page-home h2, page-home h3 {
   text-align: center;
+  margin: 25px auto;
 }
 
 page-home .toolbar-background {
@@ -25230,6 +25231,11 @@ page-home .show-menu {
   border: 1px solid #330000;
   margin: 20px auto;
   width: 80%;
+}
+
+page-home .show-menu.activated {
+  background-color: #330000;
+  color: #fff;
 }
 
 page-segment .toolbar-background {
