@@ -32,7 +32,6 @@ export class StoreService implements OnInit {
             this.categories = CATEGORIES;
          }
          else {
-            this.storage.set('category', CATEGORIES);
             this.categories = val
          }
       })
@@ -58,5 +57,13 @@ export class StoreService implements OnInit {
 
    get_category(): object[] {
       return this.categories;
+   }
+
+   update_category(items) {
+      this.storage.set('category', items);
+   }
+
+   update_menu(items) {
+      this.storage.set('menu', items);
    }
 }

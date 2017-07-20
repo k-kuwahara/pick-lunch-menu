@@ -115096,45 +115096,45 @@ var CATEGORIES = [
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MENUS; });
 var MENUS = [
-    { category_id: 1, name: '和定食' },
-    { category_id: 1, name: '野菜炒め' },
-    { category_id: 1, name: '丼物' },
-    { category_id: 1, name: '天ぷら' },
-    { category_id: 1, name: '寿司' },
-    { category_id: 2, name: 'エビチリ' },
-    { category_id: 2, name: '中華丼' },
-    { category_id: 2, name: '酢豚' },
-    { category_id: 2, name: 'チンジャオロース' },
-    { category_id: 2, name: '八宝菜' },
-    { category_id: 2, name: '餃子' },
-    { category_id: 3, name: 'ピザ' },
-    { category_id: 3, name: 'パスタ' },
-    { category_id: 3, name: 'ペンネ' },
-    { category_id: 3, name: 'ラザニア' },
-    { category_id: 3, name: 'リゾット' },
-    { category_id: 3, name: 'ミネストローネ' },
-    { category_id: 4, name: 'うどん' },
-    { category_id: 4, name: 'そば' },
-    { category_id: 4, name: '油そば' },
-    { category_id: 4, name: 'ラーメン' },
-    { category_id: 4, name: 'つけ麺' },
-    { category_id: 4, name: '刀削麺' },
-    { category_id: 4, name: '担々麺' },
-    { category_id: 4, name: 'パスタ' },
-    { category_id: 5, name: 'とんかつ' },
-    { category_id: 5, name: '豚の生姜焼き' },
-    { category_id: 5, name: '唐揚げ' },
-    { category_id: 5, name: '竜田揚げ' },
-    { category_id: 5, name: 'ハンバーグ' },
-    { category_id: 5, name: 'ステーキ' },
-    { category_id: 6, name: '○○の味噌煮' },
-    { category_id: 6, name: '○○の塩焼き' },
-    { category_id: 6, name: '○○の刺し身' },
-    { category_id: 6, name: '○○のフライ' },
-    { category_id: 6, name: '○○の西京焼き' },
-    { category_id: 7, name: 'カレー' },
-    { category_id: 7, name: 'インドカレー' },
-    { category_id: 7, name: 'オムライス' },
+    { id: 1, category_id: 1, name: '和定食' },
+    { id: 2, category_id: 1, name: '野菜炒め' },
+    { id: 3, category_id: 1, name: '丼物' },
+    { id: 4, category_id: 1, name: '天ぷら' },
+    { id: 5, category_id: 1, name: '寿司' },
+    { id: 6, category_id: 2, name: 'エビチリ' },
+    { id: 7, category_id: 2, name: '中華丼' },
+    { id: 8, category_id: 2, name: '酢豚' },
+    { id: 9, category_id: 2, name: 'チンジャオロース' },
+    { id: 10, category_id: 2, name: '八宝菜' },
+    { id: 11, category_id: 2, name: '餃子' },
+    { id: 12, category_id: 3, name: 'ピザ' },
+    { id: 13, category_id: 3, name: 'パスタ' },
+    { id: 14, category_id: 3, name: 'ペンネ' },
+    { id: 15, category_id: 3, name: 'ラザニア' },
+    { id: 16, category_id: 3, name: 'リゾット' },
+    { id: 17, category_id: 3, name: 'ミネストローネ' },
+    { id: 18, category_id: 4, name: 'うどん' },
+    { id: 19, category_id: 4, name: 'そば' },
+    { id: 20, category_id: 4, name: '油そば' },
+    { id: 21, category_id: 4, name: 'ラーメン' },
+    { id: 22, category_id: 4, name: 'つけ麺' },
+    { id: 23, category_id: 4, name: '刀削麺' },
+    { id: 24, category_id: 4, name: '担々麺' },
+    { id: 25, category_id: 4, name: 'パスタ' },
+    { id: 26, category_id: 5, name: 'とんかつ' },
+    { id: 27, category_id: 5, name: '豚の生姜焼き' },
+    { id: 28, category_id: 5, name: '唐揚げ' },
+    { id: 29, category_id: 5, name: '竜田揚げ' },
+    { id: 30, category_id: 5, name: 'ハンバーグ' },
+    { id: 31, category_id: 5, name: 'ステーキ' },
+    { id: 32, category_id: 6, name: '○○の味噌煮' },
+    { id: 33, category_id: 6, name: '○○の塩焼き' },
+    { id: 34, category_id: 6, name: '○○の刺し身' },
+    { id: 35, category_id: 6, name: '○○のフライ' },
+    { id: 36, category_id: 6, name: '○○の西京焼き' },
+    { id: 37, category_id: 7, name: 'カレー' },
+    { id: 38, category_id: 7, name: 'インドカレー' },
+    { id: 39, category_id: 7, name: 'オムライス' }
 ];
 //# sourceMappingURL=menu-list.js.map
 
@@ -115209,6 +115209,12 @@ var StoreService = (function () {
     StoreService.prototype.get_category = function () {
         return this.categories;
     };
+    StoreService.prototype.update_category = function (items) {
+        this.storage.set('category', items);
+    };
+    StoreService.prototype.update_menu = function (items) {
+        this.storage.set('menu', items);
+    };
     return StoreService;
 }());
 StoreService = __decorate([
@@ -115246,12 +115252,29 @@ var ModalPage = (function () {
         this.view_ctrl = view_ctrl;
         this.store_service = store_service;
         this.item = this.params.data;
-        console.info(this.item);
         this.title = this.item.type == 'category' ? 'カテゴリ' : 'メニュー';
     }
-    ModalPage.prototype.update = function () {
-        // this.store_service.
-        console.info('udated!!');
+    ModalPage.prototype.update = function (new_name) {
+        var _this = this;
+        if (this.item.type == 'category') {
+            var new_cat_1 = this.store_service.get_category();
+            new_cat_1.forEach(function (v, i) {
+                if (_this.item.id == v['id']) {
+                    new_cat_1[i]['name'] = new_name;
+                }
+            });
+            this.store_service.update_category(new_cat_1);
+        }
+        else if (this.item.type == 'menu') {
+            var new_menu_1 = this.store_service.get_all_menu();
+            new_menu_1.forEach(function (v, i) {
+                if (_this.item.id == v['id']) {
+                    new_menu_1[i]['name'] = new_name;
+                }
+            });
+            this.store_service.update_menu(new_menu_1);
+        }
+        this.dismiss();
     };
     ModalPage.prototype.dismiss = function () {
         this.view_ctrl.dismiss();
@@ -115260,7 +115283,7 @@ var ModalPage = (function () {
 }());
 ModalPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
-        selector: 'page-modal',template:/*ion-inline-start:"/Users/k-kuwahara/desktop/programing/pick-lunch-menu/src/pages/seg/modal-page.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      編集\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <ion-icon name="md-close"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <h1>{{ title }}</h1>\n  <ion-list>\n    <ion-item>\n      <ion-input type="text" value="{{ item.name }}"></ion-input>\n    </ion-item>\n  </ion-list>\n  <button ion-button round block (click)="update()" id="regist">登録</button>\n</ion-content>'/*ion-inline-end:"/Users/k-kuwahara/desktop/programing/pick-lunch-menu/src/pages/seg/modal-page.html"*/
+        selector: 'page-modal',template:/*ion-inline-start:"/Users/k-kuwahara/desktop/programing/pick-lunch-menu/src/pages/seg/modal-page.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      編集\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <ion-icon name="md-close"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <h1>{{ title }}</h1>\n  <ion-list>\n    <ion-item>\n      <ion-input type="text" value="{{ item.name }}" [(ngModel)]="name"></ion-input>\n    </ion-item>\n  </ion-list>\n  <button ion-button round block (click)="update(name)" id="regist">登録</button>\n</ion-content>'/*ion-inline-end:"/Users/k-kuwahara/desktop/programing/pick-lunch-menu/src/pages/seg/modal-page.html"*/
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavParams */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* ViewController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__store_service__["a" /* StoreService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__store_service__["a" /* StoreService */]) === "function" && _c || Object])
 ], ModalPage);

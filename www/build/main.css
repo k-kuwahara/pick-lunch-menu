@@ -25267,6 +25267,12 @@ page-segment .toolbar-content .segment-button.segment-activated {
   color: #fff;
 }
 
+page-segment .list h1 {
+  color: #330000;
+  text-align: center;
+  padding-top: 0.5em;
+}
+
 page-segment .label h1, page-segment .label h2, page-segment .label h3 {
   margin-top: 0 !important;
   padding: 0;
