@@ -21,11 +21,11 @@ export class HomePage implements OnInit {
 
    ngOnInit() {
       // storageからの読み込みが非同期処理で行われるため
-      setTimeout(() => {
+      var timer = setInterval(() => {
          this.categories = this.store_service.get_category();
-      }, 300);
-      // カテゴリが取得できていなかったら再度実行
-      if (this.categories.length == 0) this.store_service.get_category();
+         if (this.categories.length > 0)
+            clearInterval(timer);
+      },300);
    }
 
    select_category(e) {
