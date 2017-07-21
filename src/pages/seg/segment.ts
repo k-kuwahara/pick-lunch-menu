@@ -10,6 +10,7 @@ import { StoreService } from '../store.service';
 })
 
 export class SegmentPage implements OnInit {
+   set: string = "menu";
    menus: object[];
    categories: object[];
 
