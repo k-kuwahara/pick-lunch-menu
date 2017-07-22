@@ -56542,10 +56542,11 @@ HomePage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
         selector: 'page-home',template:/*ion-inline-start:"/Users/k-kuwahara/desktop/programing/pick-lunch-menu/src/pages/home/home.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      メニュー取得\n    </ion-title>\n    <button ion-button (click)="open_settings_page()" id="edit" color="light"><ion-icon name="settings"></ion-icon></button>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <h1>今日のお昼は何食べよう？</h1>\n\n  <button class="show-menu" ion-button round block (click)="show_menu()">メニュー表示!!</button>\n\n  <ion-list>\n    <ion-item>\n      <ion-label>カテゴリで絞る</ion-label>\n      <ion-select [(ngModel)]="category" (ionChange)="select_category($event)" multiple="true">\n        <ion-option *ngFor="let item of categories" value="{{ item.id }}">\n          {{ item.name }}\n        </ion-option>\n      </ion-select>\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/k-kuwahara/desktop/programing/pick-lunch-menu/src/pages/home/home.html"*/
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* AlertController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__store_service__["a" /* StoreService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__store_service__["a" /* StoreService */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* AlertController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_3__store_service__["a" /* StoreService */]])
 ], HomePage);
 
-var _a, _b, _c;
 //# sourceMappingURL=home.js.map
 
 /***/ }),
@@ -56578,26 +56579,26 @@ var ModalPage = (function () {
         this.title = this.item.type == 'category' ? 'カテゴリ' : 'メニュー';
     }
     ModalPage.prototype.update = function (new_name) {
-        var _this = this;
         if (this.item.type == 'category') {
-            var new_cat_1 = this.store_service.get_category();
-            new_cat_1.forEach(function (v, i) {
-                if (_this.item.id == v['id']) {
-                    new_cat_1[i]['name'] = new_name;
-                }
-            });
-            this.store_service.update_category(new_cat_1);
+            var new_cat = this.store_service.get_category();
+            new_cat = this.content_name_update(new_cat, new_name);
+            this.store_service.update_category(new_cat);
         }
         else if (this.item.type == 'menu') {
-            var new_menu_1 = this.store_service.get_all_menu();
-            new_menu_1.forEach(function (v, i) {
-                if (_this.item.id == v['id']) {
-                    new_menu_1[i]['name'] = new_name;
-                }
-            });
-            this.store_service.update_menu(new_menu_1);
+            var new_menu = this.store_service.get_all_menu();
+            new_menu = this.content_name_update(new_menu, new_name);
+            this.store_service.update_menu(new_menu);
         }
         this.dismiss();
+    };
+    ModalPage.prototype.content_name_update = function (items, name) {
+        var _this = this;
+        items.forEach(function (v, i) {
+            if (_this.item.id == v['id']) {
+                items[i]['name'] = name;
+            }
+        });
+        return items;
     };
     ModalPage.prototype.dismiss = function () {
         this.view_ctrl.dismiss();
@@ -56608,11 +56609,10 @@ ModalPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
         selector: 'page-modal',template:/*ion-inline-start:"/Users/k-kuwahara/desktop/programing/pick-lunch-menu/src/pages/seg/modal-page.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      編集\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <ion-icon name="md-close"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <h1>{{ title }}</h1>\n  <ion-list>\n    <ion-item>\n      <ion-input type="text" value="{{ item.name }}" [(ngModel)]="name"></ion-input>\n    </ion-item>\n  </ion-list>\n  <button ion-button round block (click)="update(name)" id="regist">登録</button>\n</ion-content>'/*ion-inline-end:"/Users/k-kuwahara/desktop/programing/pick-lunch-menu/src/pages/seg/modal-page.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* ViewController */],
-        __WEBPACK_IMPORTED_MODULE_2__store_service__["a" /* StoreService */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavParams */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* ViewController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__store_service__["a" /* StoreService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__store_service__["a" /* StoreService */]) === "function" && _c || Object])
 ], ModalPage);
 
+var _a, _b, _c;
 //# sourceMappingURL=modal-page.js.map
 
 /***/ }),
@@ -56656,15 +56656,36 @@ var SegmentPage = (function () {
         var modal = this.modal_ctrl.create(__WEBPACK_IMPORTED_MODULE_2__modal_page__["a" /* ModalPage */], param);
         modal.present();
     };
+    SegmentPage.prototype.delete = function (target) {
+        if (window.confirm('削除してもよろしいですか？')) {
+            if (target.category_id) {
+                this.menus = this.remove_content(this.menus, target);
+                this.store_service.update_menu(this.menus);
+            }
+            else {
+                this.categories = this.remove_content(this.menus, target);
+                this.store_service.update_category(this.categories);
+            }
+        }
+    };
+    SegmentPage.prototype.remove_content = function (items, content) {
+        items.forEach(function (v, i) {
+            if (content.id == v['id']) {
+                items.splice(i, 1);
+            }
+        });
+        return items;
+    };
     return SegmentPage;
 }());
 SegmentPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
-        selector: 'page-segment',template:/*ion-inline-start:"/Users/k-kuwahara/desktop/programing/pick-lunch-menu/src/pages/seg/segment.html"*/'<ion-header>\n  <ion-navbar no-border-bottom>\n    <ion-title>\n      編集\n    </ion-title>\n  </ion-navbar>\n\n  <ion-toolbar no-border-top>\n    <ion-segment [(ngModel)]="set">\n      <ion-segment-button value="menu">\n        メニュー\n      </ion-segment-button>\n      <ion-segment-button value="category">\n        カテゴリ\n      </ion-segment-button>\n    </ion-segment>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <div [ngSwitch]="set">\n    <ion-list *ngSwitchCase="\'menu\'">\n      <h1>メニュー</h1>\n      <ion-item *ngFor="let menu of menus">\n        <h2>{{ menu.name }}</h2>\n        <button ion-button (click)="open_modal(menu)" class="edit" color="light">編集</button>\n      </ion-item>\n    </ion-list>\n\n    <ion-list *ngSwitchCase="\'category\'">\n      <h1>カテゴリ</h1>\n      <ion-item *ngFor="let cat of categories">\n        <h2>{{ cat.name }}</h2>\n        <button ion-button (click)="open_modal(cat)" class="edit" color="light">編集</button>\n      </ion-item>\n    </ion-list>\n  </div>\n</ion-content>'/*ion-inline-end:"/Users/k-kuwahara/desktop/programing/pick-lunch-menu/src/pages/seg/segment.html"*/
+        selector: 'page-segment',template:/*ion-inline-start:"/Users/k-kuwahara/desktop/programing/pick-lunch-menu/src/pages/seg/segment.html"*/'<ion-header>\n  <ion-navbar no-border-bottom>\n    <ion-title>\n      編集\n    </ion-title>\n  </ion-navbar>\n\n  <ion-toolbar no-border-top>\n    <ion-segment [(ngModel)]="set">\n      <ion-segment-button value="menu">\n        メニュー\n      </ion-segment-button>\n      <ion-segment-button value="category">\n        カテゴリ\n      </ion-segment-button>\n    </ion-segment>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <div [ngSwitch]="set">\n    <ion-list *ngSwitchCase="\'menu\'">\n      <ion-list-header>\n        メニュー\n      </ion-list-header>\n      <ion-item-sliding *ngFor="let menu of menus">\n        <ion-item>\n          <h2>{{ menu.name }}</h2>\n          <button ion-button (click)="open_modal(menu)" class="edit" color="light">編集</button>\n        </ion-item>\n        <ion-item-options side="right">\n          <button ion-button color="danger" (click)="delete(menu)">\n            <ion-icon name="trash"></ion-icon>\n            削除\n          </button>\n        </ion-item-options>\n      </ion-item-sliding>\n    </ion-list>\n\n    <ion-list *ngSwitchCase="\'category\'">\n      <ion-list-header>\n        カテゴリ\n      </ion-list-header>\n      <ion-item-sliding *ngFor="let cat of categories">\n        <ion-item>\n          <h2>{{ cat.name }}</h2>\n          <button ion-button (click)="open_modal(cat)" class="edit" color="light">編集</button>\n        </ion-item>\n        <ion-item-options side="right">\n          <button ion-button color="danger" (click)="delete(cat)">\n            <ion-icon name="trash"></ion-icon>\n            削除\n          </button>\n        </ion-item-options>\n      </ion-item-sliding>\n    </ion-list>\n  </div>\n</ion-content>'/*ion-inline-end:"/Users/k-kuwahara/desktop/programing/pick-lunch-menu/src/pages/seg/segment.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__store_service__["a" /* StoreService */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__store_service__["a" /* StoreService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__store_service__["a" /* StoreService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */]) === "function" && _b || Object])
 ], SegmentPage);
 
+var _a, _b;
 //# sourceMappingURL=segment.js.map
 
 /***/ }),
