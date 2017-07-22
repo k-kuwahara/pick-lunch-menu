@@ -20,9 +20,7 @@
 <ion-content padding>
   <div [ngSwitch]="set">
     <ion-list *ngSwitchCase="'menu'">
-      <ion-list-header>
-        メニュー
-      </ion-list-header>
+      <h1>メニュー</h1>
       <ion-item-sliding *ngFor="let menu of menus">
         <ion-item>
           <h2>{{ menu.name }}</h2>
@@ -38,9 +36,7 @@
     </ion-list>
 
     <ion-list *ngSwitchCase="'category'">
-      <ion-list-header>
-        カテゴリ
-      </ion-list-header>
+      <h1>カテゴリ</h1>
       <ion-item-sliding *ngFor="let cat of categories">
         <ion-item>
           <h2>{{ cat.name }}</h2>

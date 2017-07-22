@@ -42,6 +42,9 @@ export class SegmentPage implements OnInit {
             this.store_service.update_category(this.categories);
          }
       }
+      else {
+         return;
+      }
    }
 
    remove_content(items, content) {

@@ -8836,7 +8836,7 @@ ion-datetime {
 }
 
 .datetime-ios {
-  padding: 11px 8px 11px 16px;
+  padding: 20px 8px 20px 16px;
 }
 
 .datetime-ios .datetime-placeholder {
@@ -8844,7 +8844,7 @@ ion-datetime {
 }
 
 .datetime-md {
-  padding: 13px 8px 13px 16px;
+  padding: 20px 8px 20px 16px;
 }
 
 .datetime-md .datetime-placeholder {
@@ -12788,14 +12788,14 @@ input.text-input:-webkit-autofill {
 }
 
 .text-input-ios {
-  margin: 11px 8px 11px 0;
+  margin: 20px 8px 20px 0;
   padding: 0;
   width: calc(100% - 8px);
 }
 
 .input-ios .inset-input {
-  padding: 5.5px 8px;
-  margin: 5.5px 16px 5.5px 0;
+  padding: 10px 8px;
+  margin: 10px 16px 10px 0;
 }
 
 .item-ios.item-label-stacked .text-input,
@@ -12834,14 +12834,14 @@ input.text-input:-webkit-autofill {
 }
 
 .text-input-md {
-  margin: 13px 8px;
+  margin: 20px 8px;
   padding: 0;
   width: calc(100% - 8px - 8px);
 }
 
 .input-md .inset-input {
-  padding: 6.5px 8px;
-  margin: 6.5px 16px;
+  padding: 10px 8px;
+  margin: 10px 16px;
 }
 
 .item-md.item-input.item-input-has-focus .item-inner,
@@ -14207,7 +14207,7 @@ ion-label[floating] {
 }
 
 .label-ios {
-  margin: 11px 8px 11px 0;
+  margin: 20px 8px 20px 0;
 }
 
 .label-ios + ion-input .text-input,
@@ -14286,7 +14286,7 @@ ion-label[floating] {
 }
 
 .label-md {
-  margin: 13px 8px 13px 0;
+  margin: 20px 8px 20px 0;
 }
 
 [text-wrap] .label-md {
@@ -18056,7 +18056,7 @@ ion-select {
 }
 
 .select-ios {
-  padding: 11px 8px 11px 16px;
+  padding: 20px 8px 20px 16px;
 }
 
 .select-ios .select-placeholder {
@@ -18084,7 +18084,7 @@ ion-select {
 }
 
 .select-md {
-  padding: 13px 8px 13px 16px;
+  padding: 20px 8px 20px 16px;
 }
 
 .select-md .select-placeholder {
@@ -25276,6 +25276,7 @@ page-segment .list h1 {
 page-segment .label h1, page-segment .label h2, page-segment .label h3 {
   margin-top: 0 !important;
   padding: 0;
+  line-height: 32px;
 }
 
 page-segment .item-button {
