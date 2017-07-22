@@ -20,19 +20,39 @@
 <ion-content padding>
   <div [ngSwitch]="set">
     <ion-list *ngSwitchCase="'menu'">
-      <h1>メニュー</h1>
-      <ion-item *ngFor="let menu of menus">
-        <h2>{{ menu.name }}</h2>
-        <button ion-button (click)="open_modal(menu)" class="edit" color="light">編集</button>
-      </ion-item>
+      <ion-list-header>
+        メニュー
+      </ion-list-header>
+      <ion-item-sliding *ngFor="let menu of menus">
+        <ion-item>
+          <h2>{{ menu.name }}</h2>
+          <button ion-button (click)="open_modal(menu)" class="edit" color="light">編集</button>
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button color="danger" (click)="delete(menu)">
+            <ion-icon name="trash"></ion-icon>
+            削除
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
     </ion-list>
 
     <ion-list *ngSwitchCase="'category'">
-      <h1>カテゴリ</h1>
-      <ion-item *ngFor="let cat of categories">
-        <h2>{{ cat.name }}</h2>
-        <button ion-button (click)="open_modal(cat)" class="edit" color="light">編集</button>
-      </ion-item>
+      <ion-list-header>
+        カテゴリ
+      </ion-list-header>
+      <ion-item-sliding *ngFor="let cat of categories">
+        <ion-item>
+          <h2>{{ cat.name }}</h2>
+          <button ion-button (click)="open_modal(cat)" class="edit" color="light">編集</button>
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button color="danger" (click)="delete(cat)">
+            <ion-icon name="trash"></ion-icon>
+            削除
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
     </ion-list>
   </div>
 </ion-content>

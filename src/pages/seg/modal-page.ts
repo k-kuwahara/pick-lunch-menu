@@ -22,23 +22,25 @@ export class ModalPage {
    update(new_name) {
       if (this.item.type == 'category') {
          let new_cat = this.store_service.get_category();
-         new_cat.forEach((v, i) => {
-            if (this.item.id == v['id']) {
-               new_cat[i]['name'] = new_name;
-            }
-         })
+         new_cat = this.content_name_update(new_cat, new_name);
          this.store_service.update_category(new_cat);
       }
       else if (this.item.type == 'menu') {
          let new_menu = this.store_service.get_all_menu();
-         new_menu.forEach((v, i) => {
-            if (this.item.id == v['id']) {
-               new_menu[i]['name'] = new_name;
-            }
-         })
+         new_menu = this.content_name_update(new_menu, new_name);
          this.store_service.update_menu(new_menu);
       }
       this.dismiss();
+   }
+
+   content_name_update(items, name) {
+      items.forEach((v, i) => {
+         if (this.item.id == v['id']) {
+            items[i]['name'] = name;
+         }
+      });
+
+      return items;
    }
 
    dismiss() {

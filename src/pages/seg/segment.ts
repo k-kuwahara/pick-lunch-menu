@@ -30,4 +30,27 @@ export class SegmentPage implements OnInit {
       let modal = this.modal_ctrl.create(ModalPage, param);
       modal.present();
    }
+
+   delete(target) {
+      if (window.confirm('削除してもよろしいですか？')) {
+         if (target.category_id) {
+            this.menus = this.remove_content(this.menus, target);
+            this.store_service.update_menu(this.menus);
+         }
+         else {
+            this.categories = this.remove_content(this.menus, target);
+            this.store_service.update_category(this.categories);
+         }
+      }
+   }
+
+   remove_content(items, content) {
+      items.forEach((v, i) => {
+         if (content.id == v['id']) {
+            items.splice(i, 1);
+         }
+      });
+
+      return items;
+   }
 }
