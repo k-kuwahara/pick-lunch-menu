@@ -25217,6 +25217,7 @@ page-home .toolbar-title {
   color: #330000;
   font-weight: 700;
   font-size: 1.9rem;
+  text-align: center;
 }
 
 page-home #edit {
@@ -25281,10 +25282,10 @@ page-segment .label h1, page-segment .label h2, page-segment .label h3 {
 
 page-segment .item-button {
   position: absolute;
-  top: 0;
+  top: 11px;
   right: 10px;
   padding: 0 1.1em !important;
-  height: 34px !important;
+  height: 40px !important;
   font-size: 1.8rem !important;
 }
 
