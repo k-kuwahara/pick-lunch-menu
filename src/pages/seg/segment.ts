@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from 'ionic-angular';
+import { AlertController, ModalController } from 'ionic-angular';
 import { ModalPage } from './modal-page';
 
 import { StoreService } from '../store.service';
@@ -14,7 +14,10 @@ export class SegmentPage implements OnInit {
    menus: object[];
    categories: object[];
 
-   constructor(public store_service: StoreService, public modal_ctrl: ModalController) {}
+   constructor(
+      public store_service: StoreService,
+      public modal_ctrl: ModalController,
+      public alertCtrl: AlertController) {}
 
    ngOnInit() {
       this.menus = this.store_service.get_all_menu();
@@ -32,19 +35,33 @@ export class SegmentPage implements OnInit {
    }
 
    delete(target) {
-      if (window.confirm('削除してもよろしいですか？')) {
-         if (target.category_id) {
-            this.menus = this.remove_content(this.menus, target);
-            this.store_service.update_menu(this.menus);
-         }
-         else {
-            this.categories = this.remove_content(this.menus, target);
-            this.store_service.update_category(this.categories);
-         }
-      }
-      else {
-         return;
-      }
+      let confirm = this.alertCtrl.create({
+         title: '本当に削除してもよろしいですか？',
+         message: 'この操作は取り消すことができませんが、それでも実行しますか？',
+         buttons: [
+            {
+               text: 'キャンセル',
+               role: 'cancel',
+               handler: function() {
+                  console.info('キャンセル')
+               }
+            },
+            {
+               text: 'OK',
+               handler: () => {
+                 if (target.category_id) {
+                    this.menus = this.remove_content(this.menus, target);
+                    this.store_service.update_menu(this.menus);
+                 }
+                 else {
+                    this.categories = this.remove_content(this.menus, target);
+                    this.store_service.update_category(this.categories);
+                 }
+               }
+            }
+         ]
+      });
+      confirm.present();
    }
 
    remove_content(items, content) {

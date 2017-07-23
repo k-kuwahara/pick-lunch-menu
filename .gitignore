@@ -4,3 +4,4 @@ platforms
 plugins
 npm-debug.log
 www/build/*.map
+docs/build/*.map

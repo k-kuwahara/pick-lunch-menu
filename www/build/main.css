@@ -25282,7 +25282,7 @@ page-segment .label h1, page-segment .label h2, page-segment .label h3 {
 
 page-segment .item-button {
   position: absolute;
-  top: 11px;
+  top: 5px;
   right: 10px;
   padding: 0 1.1em !important;
   height: 40px !important;

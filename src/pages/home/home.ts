@@ -14,7 +14,7 @@ export class HomePage implements OnInit {
    select: string[] = [];
 
    constructor(
-      public alerCtrl: AlertController,
+      public alertCtrl: AlertController,
       public nav: NavController,
       public store_service: StoreService ) {
    }
@@ -47,7 +47,7 @@ export class HomePage implements OnInit {
          menu = menus[key];
       }
 
-      let alert = this.alerCtrl.create({
+      let alert = this.alertCtrl.create({
          title: menu['name'],
          subTitle: 'はどうですか？',
          buttons: ['OK']
