@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController, ModalController } from 'ionic-angular';
-import { ModalPage } from './modal-page';
+import { DetailPage } from './detail-page';
+import { NewPage } from './new-page';
 
 import { StoreService } from '../store.service';
 
@@ -30,7 +31,12 @@ export class SegmentPage implements OnInit {
       else
          param.type = 'category'
 
-      let modal = this.modal_ctrl.create(ModalPage, param);
+      let modal = this.modal_ctrl.create(DetailPage, param);
+      modal.present();
+   }
+
+   add_item() {
+      let modal = this.modal_ctrl.create(NewPage);
       modal.present();
    }
 
@@ -42,8 +48,8 @@ export class SegmentPage implements OnInit {
             {
                text: 'キャンセル',
                role: 'cancel',
-               handler: function() {
-                  console.info('キャンセル')
+               handler: () => {
+                  return;
                }
             },
             {

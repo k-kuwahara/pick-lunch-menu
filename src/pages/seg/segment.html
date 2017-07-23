@@ -18,6 +18,9 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-fab bottom right >
+    <button ion-fab id="add_item" (click)="add_item()">＋</button>
+  </ion-fab>
   <div [ngSwitch]="set">
     <ion-list *ngSwitchCase="'menu'">
       <h1>メニュー</h1>

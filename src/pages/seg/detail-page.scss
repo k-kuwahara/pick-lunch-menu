@@ -1,0 +1,28 @@
+page-detail {
+	h1, h2 {
+		text-align: center;
+		padding: 20px 0;
+	}
+	.toolbar-background {
+		background-color: #ffbb00;
+	}
+	.toolbar-title {
+		color: #330000;
+		font-weight: 700;
+		font-size: 1.9rem;
+	}
+	.bar-button {
+		background-color: #fff;
+		padding: 5px 15px;
+		.button-inner {
+			color: #330000;
+		}
+	}
+	#regist {
+		background-color: #ffbb00;
+		color: #330000;
+		border: 1px solid #330000;
+		margin: 20px auto;
+		width: 80%;
+	}
+}

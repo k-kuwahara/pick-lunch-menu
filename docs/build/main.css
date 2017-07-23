@@ -25289,31 +25289,68 @@ page-segment .item-button {
   font-size: 1.8rem !important;
 }
 
-page-modal h1, page-modal h2 {
+page-segment .fab {
+  background-color: #330000;
+  color: #fff;
+}
+
+page-detail h1, page-detail h2 {
   text-align: center;
   padding: 20px 0;
 }
 
-page-modal .toolbar-background {
+page-detail .toolbar-background {
   background-color: #ffbb00;
 }
 
-page-modal .toolbar-title {
+page-detail .toolbar-title {
   color: #330000;
   font-weight: 700;
   font-size: 1.9rem;
 }
 
-page-modal .bar-button {
+page-detail .bar-button {
   background-color: #fff;
   padding: 5px 15px;
 }
 
-page-modal .bar-button .button-inner {
+page-detail .bar-button .button-inner {
   color: #330000;
 }
 
-page-modal #regist {
+page-detail #regist {
+  background-color: #ffbb00;
+  color: #330000;
+  border: 1px solid #330000;
+  margin: 20px auto;
+  width: 80%;
+}
+
+page-new h1, page-new h2 {
+  text-align: center;
+  padding: 20px 0;
+}
+
+page-new .toolbar-background {
+  background-color: #ffbb00;
+}
+
+page-new .toolbar-title {
+  color: #330000;
+  font-weight: 700;
+  font-size: 1.9rem;
+}
+
+page-new .bar-button {
+  background-color: #fff;
+  padding: 5px 15px;
+}
+
+page-new .bar-button .button-inner {
+  color: #330000;
+}
+
+page-new #regist {
   background-color: #ffbb00;
   color: #330000;
   border: 1px solid #330000;

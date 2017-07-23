@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      追加
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <ion-icon name="md-close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <h1>{{ title }}</h1>
+  <ion-list>
+    <ion-item>
+      <ion-input type="text" value="" [(ngModel)]="name"></ion-input>
+    </ion-item>
+  </ion-list>
+  <button ion-button round block (click)="create(name)" id="regist">登録</button>
+</ion-content>
