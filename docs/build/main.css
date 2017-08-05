@@ -25356,6 +25356,7 @@ page-new .bar-button .button-inner {
 page-new .error-txt {
   font-size: 1.3rem;
   color: red;
+  text-align: center;
 }
 
 page-new #regist {
