@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      追加
+      新規登録
     </ion-title>
     <ion-buttons start>
       <button ion-button (click)="dismiss()">
@@ -14,12 +14,21 @@
 <ion-content padding>
   <h1>{{ title }}</h1>
   <ion-list>
-    <ion-item>
-      <ion-input type="text" value="" [(ngModel)]="category"></ion-input>
+    <ion-item *ngIf="type == 'category' ">
+      <ion-input type="text" value="" [(ngModel)]="category" placeholder="カテゴリ名を入力してください"></ion-input>
     </ion-item>
     <ion-item *ngIf="type == 'menu' ">
-      <ion-input type="text" value="" [(ngModel)]="menu"></ion-input>
+      <ion-label>カテゴリを選択</ion-label>
+      <ion-select [(ngModel)]="category" (ionChange)="select_category($event)" multiple="false">
+        <ion-option *ngFor="let item of categories" value="{{ item.id }}">
+          {{ item.name }}
+        </ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item *ngIf="type == 'menu' ">
+      <ion-input type="text" value="" [(ngModel)]="menu" placeholder="メニュー名を入力してください"></ion-input>
     </ion-item>
   </ion-list>
+  <p class="error-txt">{{ error_txt }}</p>
   <button ion-button round block (click)="create(category, menu)" id="regist">登録</button>
 </ion-content>

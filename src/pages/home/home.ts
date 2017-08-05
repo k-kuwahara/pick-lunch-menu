@@ -47,12 +47,22 @@ export class HomePage implements OnInit {
          menu = menus[key];
       }
 
-      let alert = this.alertCtrl.create({
-         title: menu['name'],
-         subTitle: 'はどうですか？',
-         buttons: ['OK']
-       });
-      alert.present();
+      if (menu == void 0) {
+         let alert = this.alertCtrl.create({
+            title: '指定のカテゴリにはメニューが登録されていません',
+            subTitle: '',
+            buttons: ['閉じる']
+          });
+         alert.present();
+      }
+      else {
+         let alert = this.alertCtrl.create({
+            title: menu['name'],
+            subTitle: 'はどうですか？',
+            buttons: ['OK']
+          });
+         alert.present();
+      }
    }
 
    open_settings_page() {

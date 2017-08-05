@@ -10,6 +10,7 @@ page-new {
 		color: #330000;
 		font-weight: 700;
 		font-size: 1.9rem;
+		text-align: center;
 	}
 	.bar-button {
 		background-color: #fff;
@@ -17,6 +18,10 @@ page-new {
 		.button-inner {
 			color: #330000;
 		}
+	}
+	.error-txt {
+		font-size: 1.3rem;
+		color: red;
 	}
 	#regist {
 		background-color: #ffbb00;
