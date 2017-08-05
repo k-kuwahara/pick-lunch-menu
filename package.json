@@ -8,6 +8,7 @@
         "clean": "ionic-app-scripts clean",
         "build": "ionic-app-scripts build",
         "lint": "ionic-app-scripts lint",
+        "test": "karma start ./test-config/karma.conf.js",
         "ionic:build": "ionic-app-scripts build",
         "ionic:serve": "ionic-app-scripts serve"
     },
@@ -45,6 +46,8 @@
         "@ionic/cli-plugin-ionic-angular": "1.4.1",
         "@types/jasmine": "^2.5.41",
         "@types/node": "^7.0.8",
+        "angular2-template-loader": "^0.6.2",
+        "html-loader": "^0.5.0",
         "ionic": "3.7.0",
         "jasmine-core": "^2.7.0",
         "jasmine-spec-reporter": "^4.1.1",

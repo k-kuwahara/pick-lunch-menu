@@ -12,6 +12,7 @@ import { StoreService } from '../store.service';
 export class HomePage implements OnInit {
    categories: object[] = [];
    select: string[] = [];
+   menu: object = {};
 
    constructor(
       public alertCtrl: AlertController,
@@ -33,21 +34,20 @@ export class HomePage implements OnInit {
    }
 
    show_menu() {
-      let menu: object;
       if (this.select.length > 0) {
          let menus: object[] = this.store_service.get_menu_with_category(this.select);
          let key:number
             = Math.floor(Math.random() * menus.length);
-         menu = menus[key];
+         this.menu = menus[key];
       }
       else {
          let menus: object[] = this.store_service.get_all_menu();
          let key:number
             = Math.floor(Math.random() * menus.length);
-         menu = menus[key];
+         this.menu = menus[key];
       }
 
-      if (menu == void 0) {
+      if (this.menu == void 0) {
          let alert = this.alertCtrl.create({
             title: '指定のカテゴリにはメニューが登録されていません',
             subTitle: '',
@@ -57,7 +57,7 @@ export class HomePage implements OnInit {
       }
       else {
          let alert = this.alertCtrl.create({
-            title: menu['name'],
+            title: this.menu['name'],
             subTitle: 'はどうですか？',
             buttons: ['OK']
           });
