@@ -35,8 +35,8 @@ export class SegmentPage implements OnInit {
       modal.present();
    }
 
-   add_item() {
-      let modal = this.modal_ctrl.create(NewPage);
+   open_new_modal(type) {
+      let modal = this.modal_ctrl.create(NewPage, { type: type });
       modal.present();
    }
 

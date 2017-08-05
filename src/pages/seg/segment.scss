@@ -52,5 +52,8 @@ page-segment {
 	.fab {
 		background-color: #330000;
 		color: #fff;
+		&.activated {
+			opacity: 0.5;
+		}
 	}
 }

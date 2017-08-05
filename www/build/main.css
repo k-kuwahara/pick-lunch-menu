@@ -25294,6 +25294,10 @@ page-segment .fab {
   color: #fff;
 }
 
+page-segment .fab.activated {
+  opacity: 0.5;
+}
+
 page-detail h1, page-detail h2 {
   text-align: center;
   padding: 20px 0;

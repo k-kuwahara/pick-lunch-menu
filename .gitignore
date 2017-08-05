@@ -4,4 +4,5 @@ platforms
 plugins
 npm-debug.log
 www/build/*.map
+www/build/.ion-diagnostic-typescript.html
 docs/build/*.map
