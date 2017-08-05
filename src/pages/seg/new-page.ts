@@ -32,6 +32,10 @@ export class NewPage {
          this.error_txt = 'カテゴリ名を入力してください';
          return;
       }
+      else if (this.select !== '' && menu == null) {
+         this.error_txt = 'メニュー名を入力してください';
+         return;
+      }
 
       if (this.select === '') {
          let new_cat = this.categories;

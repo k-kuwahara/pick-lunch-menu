@@ -4330,7 +4330,7 @@ ion-alert input {
   border-top: 0.55px solid #dbdbdf;
   border-right: 0.55px solid #dbdbdf;
   font-size: 17px;
-  color: #488aff;
+  color: red;
   background-color: transparent;
 }
 
@@ -4531,7 +4531,7 @@ ion-alert input {
   overflow: hidden;
   font-weight: 500;
   text-transform: uppercase;
-  color: #488aff;
+  color: red;
   background-color: transparent;
   margin: 0 8px 0 0;
   padding: 10px;
@@ -25356,6 +25356,7 @@ page-new .bar-button .button-inner {
 page-new .error-txt {
   font-size: 1.3rem;
   color: red;
+  text-align: center;
 }
 
 page-new #regist {

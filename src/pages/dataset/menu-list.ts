@@ -5,8 +5,8 @@
  */
 import { Menu } from './menu';
 export const MENUS: Menu[] = [
-   { id: 1, category_id: 1, name: '和定食' },
-   { id: 2, category_id: 1, name: '野菜炒め' },
+   { id: 1, category_id: 1, name: '定食' },
+   { id: 2, category_id: 1, name: '煮物' },
    { id: 3, category_id: 1, name: '丼物' },
    { id: 4, category_id: 1, name: '天ぷら' },
    { id: 5, category_id: 1, name: '寿司' },
