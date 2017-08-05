@@ -3,7 +3,6 @@ import { IonicModule, NavController, AlertController } from 'ionic-angular';
 import { IonicStorageModule } from '@ionic/storage';
 
 import { HomePage } from './home';
-import { SegmentPage }  from '../seg/segment';
 import { StoreService } from '../store.service';
 
 describe('Home component', () => {
