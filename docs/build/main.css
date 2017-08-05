@@ -9090,7 +9090,8 @@ ion-fab-list[side=right] {
 }
 
 .fab-ios.activated {
-  background-color: #427feb;
+  background-color: #330000;
+  opacity: 0.5;
 }
 
 .fab-ios-in-list {
@@ -25307,6 +25308,7 @@ page-detail .toolbar-title {
   color: #330000;
   font-weight: 700;
   font-size: 1.9rem;
+  text-align: center;
 }
 
 page-detail .bar-button {
@@ -25339,6 +25341,7 @@ page-new .toolbar-title {
   color: #330000;
   font-weight: 700;
   font-size: 1.9rem;
+  text-align: center;
 }
 
 page-new .bar-button {
@@ -25348,6 +25351,11 @@ page-new .bar-button {
 
 page-new .bar-button .button-inner {
   color: #330000;
+}
+
+page-new .error-txt {
+  font-size: 1.3rem;
+  color: red;
 }
 
 page-new #regist {
