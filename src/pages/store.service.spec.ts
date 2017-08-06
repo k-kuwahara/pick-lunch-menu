@@ -13,9 +13,9 @@ describe('StoreService', () => {
        })
     }));
 
-   beforeEach(async() => {
-      service = new StoreService();
-   });
+   // beforeEach(async() => {
+   //    service = new StoreService();
+   // });
 
    it('store service import', async() => {
       expect(service).toBeDefined();

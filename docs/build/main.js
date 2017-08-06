@@ -36185,9 +36185,10 @@ var StoreService = (function () {
 }());
 StoreService = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["l" /* Injectable */])(),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__ionic_storage__["b" /* Storage */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ionic_storage__["b" /* Storage */]) === "function" && _a || Object])
 ], StoreService);
 
+var _a;
 //# sourceMappingURL=store.service.js.map
 
 /***/ }),
@@ -56500,7 +56501,8 @@ var HomePage = (function () {
         this.nav = nav;
         this.store_service = store_service;
         this.categories = [];
-        this.select = [];
+        this.select = '';
+        this.menu = {};
     }
     HomePage.prototype.ngOnInit = function () {
         var _this = this;
@@ -56515,18 +56517,17 @@ var HomePage = (function () {
         this.select = e;
     };
     HomePage.prototype.show_menu = function () {
-        var menu;
         if (this.select.length > 0) {
             var menus = this.store_service.get_menu_with_category(this.select);
             var key = Math.floor(Math.random() * menus.length);
-            menu = menus[key];
+            this.menu = menus[key];
         }
         else {
             var menus = this.store_service.get_all_menu();
             var key = Math.floor(Math.random() * menus.length);
-            menu = menus[key];
+            this.menu = menus[key];
         }
-        if (menu == void 0) {
+        if (this.menu == void 0) {
             var alert_1 = this.alertCtrl.create({
                 title: '指定のカテゴリにはメニューが登録されていません',
                 subTitle: '',
@@ -56536,7 +56537,7 @@ var HomePage = (function () {
         }
         else {
             var alert_2 = this.alertCtrl.create({
-                title: menu['name'],
+                title: this.menu['name'],
                 subTitle: 'はどうですか？',
                 buttons: ['OK']
             });
