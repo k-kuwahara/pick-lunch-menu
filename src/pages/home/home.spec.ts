@@ -4,6 +4,7 @@ import { IonicStorageModule } from '@ionic/storage';
 
 import { HomePage } from './home';
 import { StoreService } from '../store.service';
+import { CATEGORIES } from '../dataset/category-list';
 
 describe('Home component', () => {
    let comp: HomePage;
@@ -17,9 +18,9 @@ describe('Home component', () => {
            IonicStorageModule.forRoot()
          ],
          providers: [
-            StoreService,
             NavController,
-            AlertController
+            AlertController,
+            { provide: StoreService, useValue: CATEGORIES }
          ]
        })
      }));
@@ -35,4 +36,8 @@ describe('Home component', () => {
       expect(comp.categories.length).toBe(0);
    });
 
+   it('select category', async() => {
+      comp.select_category(1);
+      expect(comp.select).toBeDefined(1);
+   })
 })

@@ -11,7 +11,7 @@ import { StoreService } from '../store.service';
 
 export class HomePage implements OnInit {
    categories: object[] = [];
-   select: string[] = [];
+   select: string = '';
    menu: object = {};
 
    constructor(
