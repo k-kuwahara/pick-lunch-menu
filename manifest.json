@@ -1,0 +1,8 @@
+{
+  "manifest_version": 1,
+  "name": "Pick Lunch Menu",
+  "version": "0.0.1",
+  "default_locale": "ja_JP",
+  "display": "standalone",
+  "start_url": "index.html"
+}
