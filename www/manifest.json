@@ -1,13 +1,15 @@
 {
-  "name": "Ionic",
-  "short_name": "Ionic",
-  "start_url": "index.html",
+  "manifest_version": 1,
+  "name": "Pick Lunch Menu",
+  "version": "0.0.1",
+  "default_locale": "ja_JP",
   "display": "standalone",
-  "icons": [{
-    "src": "assets/imgs/logo.png",
-    "sizes": "512x512",
-    "type": "image/png"
-  }],
   "background_color": "#4e8ef7",
-  "theme_color": "#4e8ef7"
+  "icons": [{
+     "src": "assets/imgs/logo.png",
+     "sizes": "512x512",
+     "type": "image/png"
+   }],
+  "theme_color": "#4e8ef7",
+  "start_url": "index.html"
 }
