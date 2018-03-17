@@ -35317,7 +35317,7 @@ var VERSION = new __WEBPACK_IMPORTED_MODULE_1__angular_core__["G" /* Version */]
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_alert_alert__ = __webpack_require__(54);
 /* unused harmony reexport Alert */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_alert_alert_controller__ = __webpack_require__(111);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_6__components_alert_alert_controller__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return __WEBPACK_IMPORTED_MODULE_6__components_alert_alert_controller__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_alert_alert_component__ = __webpack_require__(53);
 /* unused harmony reexport AlertCmp */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_app_app__ = __webpack_require__(6);
@@ -35411,7 +35411,7 @@ var VERSION = new __WEBPACK_IMPORTED_MODULE_1__angular_core__["G" /* Version */]
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__components_modal_modal_component__ = __webpack_require__(66);
 /* unused harmony reexport ModalCmp */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__components_modal_modal_controller__ = __webpack_require__(140);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_53__components_modal_modal_controller__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_53__components_modal_modal_controller__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__components_nav_nav__ = __webpack_require__(69);
 /* unused harmony reexport Nav */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__components_nav_nav_pop__ = __webpack_require__(67);
@@ -35492,7 +35492,7 @@ var VERSION = new __WEBPACK_IMPORTED_MODULE_1__angular_core__["G" /* Version */]
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_92__components_toast_toast_component__ = __webpack_require__(88);
 /* unused harmony reexport ToastCmp */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_93__components_toast_toast_controller__ = __webpack_require__(164);
-/* unused harmony reexport ToastController */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_93__components_toast_toast_controller__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_94__components_toggle_toggle__ = __webpack_require__(166);
 /* unused harmony reexport Toggle */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_95__components_toolbar_toolbar_footer__ = __webpack_require__(168);
@@ -35526,7 +35526,7 @@ var VERSION = new __WEBPACK_IMPORTED_MODULE_1__angular_core__["G" /* Version */]
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_108__platform_dom_controller__ = __webpack_require__(8);
 /* unused harmony reexport DomController */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_109__platform_platform__ = __webpack_require__(3);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return __WEBPACK_IMPORTED_MODULE_109__platform_platform__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return __WEBPACK_IMPORTED_MODULE_109__platform_platform__["a"]; });
 /* unused harmony reexport setupPlatform */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_110__tap_click_haptic__ = __webpack_require__(37);
 /* unused harmony reexport Haptic */
@@ -35535,7 +35535,7 @@ var VERSION = new __WEBPACK_IMPORTED_MODULE_1__angular_core__["G" /* Version */]
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_112__navigation_ionic_page__ = __webpack_require__(233);
 /* unused harmony reexport IonicPage */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_113__navigation_nav_controller__ = __webpack_require__(21);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return __WEBPACK_IMPORTED_MODULE_113__navigation_nav_controller__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return __WEBPACK_IMPORTED_MODULE_113__navigation_nav_controller__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_114__navigation_nav_controller_base__ = __webpack_require__(47);
 /* unused harmony reexport NavControllerBase */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_115__navigation_nav_params__ = __webpack_require__(14);
@@ -56527,20 +56527,20 @@ var HomePage = (function () {
             this.menu = menus[key];
         }
         if (this.menu == void 0) {
-            var alert_1 = this.alertCtrl.create({
+            var alert = this.alertCtrl.create({
                 title: '指定のカテゴリにはメニューが登録されていません',
                 subTitle: '',
                 buttons: ['閉じる']
             });
-            alert_1.present();
+            alert.present();
         }
         else {
-            var alert_2 = this.alertCtrl.create({
+            var alert = this.alertCtrl.create({
                 title: this.menu['name'],
                 subTitle: 'はどうですか？',
                 buttons: ['OK']
             });
-            alert_2.present();
+            alert.present();
         }
     };
     HomePage.prototype.open_settings_page = function () {
@@ -56550,13 +56550,12 @@ var HomePage = (function () {
 }());
 HomePage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"/Users/k-kuwahara/desktop/programing/ionics/pick-lunch-menu/src/pages/home/home.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      メニュー取得\n    </ion-title>\n    <button ion-button (click)="open_settings_page()" id="edit" color="light"><ion-icon name="settings"></ion-icon></button>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <h1>お昼は何食べよう？</h1>\n\n  <button class="show-menu" ion-button round block (click)="show_menu()">メニュー表示!!</button>\n\n  <ion-list>\n    <ion-item>\n      <ion-label>カテゴリで絞る</ion-label>\n      <ion-select [(ngModel)]="category" (ionChange)="select_category($event)" multiple="true">\n        <ion-option *ngFor="let item of categories" value="{{ item.id }}">\n          {{ item.name }}\n        </ion-option>\n      </ion-select>\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/k-kuwahara/desktop/programing/ionics/pick-lunch-menu/src/pages/home/home.html"*/
+        selector: 'page-home',template:/*ion-inline-start:"/Users/k-kuwahara/src/github.com/k-kuwahara/pick-lunch-menu/src/pages/home/home.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      メニュー取得\n    </ion-title>\n    <button ion-button (click)="open_settings_page()" id="edit" color="light"><ion-icon name="settings"></ion-icon></button>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <h1>お昼は何食べよう？</h1>\n\n  <button class="show-menu" ion-button round block (click)="show_menu()">メニュー表示!!</button>\n\n  <ion-list>\n    <ion-item>\n      <ion-label>カテゴリで絞る</ion-label>\n      <ion-select [(ngModel)]="category" (ionChange)="select_category($event)" multiple="true">\n        <ion-option *ngFor="let item of categories" value="{{ item.id }}">\n          {{ item.name }}\n        </ion-option>\n      </ion-select>\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/k-kuwahara/src/github.com/k-kuwahara/pick-lunch-menu/src/pages/home/home.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* AlertController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_3__store_service__["a" /* StoreService */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* AlertController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__store_service__["a" /* StoreService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__store_service__["a" /* StoreService */]) === "function" && _c || Object])
 ], HomePage);
 
+var _a, _b, _c;
 //# sourceMappingURL=home.js.map
 
 /***/ }),
@@ -56617,7 +56616,7 @@ var DetailPage = (function () {
 }());
 DetailPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
-        selector: 'page-detail',template:/*ion-inline-start:"/Users/k-kuwahara/desktop/programing/ionics/pick-lunch-menu/src/pages/seg/detail-page.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      詳細\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <ion-icon name="md-close"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <h1>{{ title }}</h1>\n  <ion-list>\n    <ion-item>\n      <ion-input type="text" value="{{ item.name }}" [(ngModel)]="name"></ion-input>\n    </ion-item>\n  </ion-list>\n  <button ion-button round block (click)="update(name)" id="regist">登録</button>\n</ion-content>'/*ion-inline-end:"/Users/k-kuwahara/desktop/programing/ionics/pick-lunch-menu/src/pages/seg/detail-page.html"*/
+        selector: 'page-detail',template:/*ion-inline-start:"/Users/k-kuwahara/src/github.com/k-kuwahara/pick-lunch-menu/src/pages/seg/detail-page.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      詳細\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <ion-icon name="md-close"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <h1>{{ title }}</h1>\n  <ion-list>\n    <ion-item>\n      <ion-input type="text" value="{{ item.name }}" [(ngModel)]="name"></ion-input>\n    </ion-item>\n  </ion-list>\n  <button ion-button round block (click)="update(name)" id="regist">登録</button>\n</ion-content>'/*ion-inline-end:"/Users/k-kuwahara/src/github.com/k-kuwahara/pick-lunch-menu/src/pages/seg/detail-page.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavParams */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* ViewController */],
@@ -56648,11 +56647,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var NewPage = (function () {
-    function NewPage(params, view_ctrl, store_service) {
+    function NewPage(params, view_ctrl, toastCtrl, store_service) {
         this.params = params;
         this.view_ctrl = view_ctrl;
+        this.toastCtrl = toastCtrl;
         this.store_service = store_service;
         this.select = '';
+        this.error_txt = '';
         this.categories = [];
         this.categories = this.store_service.get_category();
         this.type = this.params.data.type;
@@ -56663,14 +56664,15 @@ var NewPage = (function () {
         if (menu === void 0) { menu = null; }
         if (category == null && menu == null) {
             this.error_txt = 'カテゴリ、メニュー名を入力してください';
-            return;
         }
         else if (category == void 0) {
             this.error_txt = 'カテゴリ名を入力してください';
-            return;
         }
         else if (this.select !== '' && menu == null) {
             this.error_txt = 'メニュー名を入力してください';
+        }
+        if (this.error_txt !== '') {
+            this.show_toast('bottom');
             return;
         }
         if (this.select === '') {
@@ -56698,17 +56700,24 @@ var NewPage = (function () {
     NewPage.prototype.dismiss = function () {
         this.view_ctrl.dismiss();
     };
+    NewPage.prototype.show_toast = function (position) {
+        var toast = this.toastCtrl.create({
+            message: this.error_txt,
+            duration: 2000,
+            position: position
+        });
+        toast.present(toast);
+    };
     return NewPage;
 }());
 NewPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
-        selector: 'page-new',template:/*ion-inline-start:"/Users/k-kuwahara/desktop/programing/ionics/pick-lunch-menu/src/pages/seg/new-page.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      新規登録\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <ion-icon name="md-close"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <h1>{{ title }}</h1>\n  <ion-list>\n    <ion-item *ngIf="type == \'category\' ">\n      <ion-input type="text" value="" [(ngModel)]="category" placeholder="カテゴリ名を入力してください"></ion-input>\n    </ion-item>\n    <ion-item *ngIf="type == \'menu\' ">\n      <ion-label>カテゴリを選択</ion-label>\n      <ion-select [(ngModel)]="category" (ionChange)="select_category($event)" multiple="false">\n        <ion-option *ngFor="let item of categories" value="{{ item.id }}">\n          {{ item.name }}\n        </ion-option>\n      </ion-select>\n    </ion-item>\n    <ion-item *ngIf="type == \'menu\' ">\n      <ion-input type="text" value="" [(ngModel)]="menu" placeholder="メニュー名を入力してください"></ion-input>\n    </ion-item>\n  </ion-list>\n  <p class="error-txt">{{ error_txt }}</p>\n  <button ion-button round block (click)="create(category, menu)" id="regist">登録</button>\n</ion-content>'/*ion-inline-end:"/Users/k-kuwahara/desktop/programing/ionics/pick-lunch-menu/src/pages/seg/new-page.html"*/
+        selector: 'page-new',template:/*ion-inline-start:"/Users/k-kuwahara/src/github.com/k-kuwahara/pick-lunch-menu/src/pages/seg/new-page.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      新規登録\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <ion-icon name="md-close"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <h1>{{ title }}</h1>\n  <ion-list>\n    <ion-item *ngIf="type == \'category\' ">\n      <ion-input type="text" value="" [(ngModel)]="category" placeholder="カテゴリ名を入力してください"></ion-input>\n    </ion-item>\n    <ion-item *ngIf="type == \'menu\' ">\n      <ion-label>カテゴリを選択</ion-label>\n      <ion-select [(ngModel)]="category" (ionChange)="select_category($event)" multiple="false">\n        <ion-option *ngFor="let item of categories" value="{{ item.id }}">\n          {{ item.name }}\n        </ion-option>\n      </ion-select>\n    </ion-item>\n    <ion-item *ngIf="type == \'menu\' ">\n      <ion-input type="text" value="" [(ngModel)]="menu" placeholder="メニュー名を入力してください"></ion-input>\n    </ion-item>\n  </ion-list>\n  <button ion-button round block (click)="create(category, menu)" id="regist">登録</button>\n</ion-content>'/*ion-inline-end:"/Users/k-kuwahara/src/github.com/k-kuwahara/pick-lunch-menu/src/pages/seg/new-page.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* ViewController */],
-        __WEBPACK_IMPORTED_MODULE_2__store_service__["a" /* StoreService */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavParams */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* ViewController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ToastController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__store_service__["a" /* StoreService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__store_service__["a" /* StoreService */]) === "function" && _d || Object])
 ], NewPage);
 
+var _a, _b, _c, _d;
 //# sourceMappingURL=new-page.js.map
 
 /***/ }),
@@ -56801,11 +56810,11 @@ var SegmentPage = (function () {
 }());
 SegmentPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
-        selector: 'page-segment',template:/*ion-inline-start:"/Users/k-kuwahara/desktop/programing/ionics/pick-lunch-menu/src/pages/seg/segment.html"*/'<ion-header>\n  <ion-navbar no-border-bottom>\n    <ion-title>\n      編集\n    </ion-title>\n  </ion-navbar>\n\n  <ion-toolbar no-border-top>\n    <ion-segment [(ngModel)]="set">\n      <ion-segment-button value="menu">\n        メニュー\n      </ion-segment-button>\n      <ion-segment-button value="category">\n        カテゴリ\n      </ion-segment-button>\n    </ion-segment>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-fab bottom right >\n    <button ion-fab id="add_item" (click)="open_new_modal(set)">＋</button>\n  </ion-fab>\n  <div [ngSwitch]="set">\n    <ion-list *ngSwitchCase="\'menu\'">\n      <h1>メニュー</h1>\n      <ion-item-sliding *ngFor="let menu of menus">\n        <ion-item>\n          <h2>{{ menu.name }}</h2>\n          <button ion-button (click)="open_modal(menu)" class="edit" color="light">編集</button>\n        </ion-item>\n        <ion-item-options side="right">\n          <button ion-button color="danger" (click)="delete(menu)">\n            <ion-icon name="trash"></ion-icon>\n            削除\n          </button>\n        </ion-item-options>\n      </ion-item-sliding>\n    </ion-list>\n\n    <ion-list *ngSwitchCase="\'category\'">\n      <h1>カテゴリ</h1>\n      <ion-item-sliding *ngFor="let cat of categories">\n        <ion-item>\n          <h2>{{ cat.name }}</h2>\n          <button ion-button (click)="open_modal(cat)" class="edit" color="light">編集</button>\n        </ion-item>\n        <ion-item-options side="right">\n          <button ion-button color="danger" (click)="delete(cat)">\n            <ion-icon name="trash"></ion-icon>\n            削除\n          </button>\n        </ion-item-options>\n      </ion-item-sliding>\n    </ion-list>\n  </div>\n</ion-content>'/*ion-inline-end:"/Users/k-kuwahara/desktop/programing/ionics/pick-lunch-menu/src/pages/seg/segment.html"*/
+        selector: 'page-segment',template:/*ion-inline-start:"/Users/k-kuwahara/src/github.com/k-kuwahara/pick-lunch-menu/src/pages/seg/segment.html"*/'<ion-header>\n  <ion-navbar no-border-bottom>\n    <ion-title>\n      編集\n    </ion-title>\n  </ion-navbar>\n\n  <ion-toolbar no-border-top>\n    <ion-segment [(ngModel)]="set">\n      <ion-segment-button value="menu">\n        メニュー\n      </ion-segment-button>\n      <ion-segment-button value="category">\n        カテゴリ\n      </ion-segment-button>\n    </ion-segment>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-fab bottom right >\n    <button ion-fab id="add_item" (click)="open_new_modal(set)">＋</button>\n  </ion-fab>\n  <div [ngSwitch]="set">\n    <ion-list *ngSwitchCase="\'menu\'">\n      <h1>メニュー</h1>\n      <ion-item-sliding *ngFor="let menu of menus">\n        <ion-item>\n          <h2>{{ menu.name }}</h2>\n          <button ion-button (click)="open_modal(menu)" class="edit" color="light">編集</button>\n        </ion-item>\n        <ion-item-options side="right">\n          <button ion-button color="danger" (click)="delete(menu)">\n            <ion-icon name="trash"></ion-icon>\n            削除\n          </button>\n        </ion-item-options>\n      </ion-item-sliding>\n    </ion-list>\n\n    <ion-list *ngSwitchCase="\'category\'">\n      <h1>カテゴリ</h1>\n      <ion-item-sliding *ngFor="let cat of categories">\n        <ion-item>\n          <h2>{{ cat.name }}</h2>\n          <button ion-button (click)="open_modal(cat)" class="edit" color="light">編集</button>\n        </ion-item>\n        <ion-item-options side="right">\n          <button ion-button color="danger" (click)="delete(cat)">\n            <ion-icon name="trash"></ion-icon>\n            削除\n          </button>\n        </ion-item-options>\n      </ion-item-sliding>\n    </ion-list>\n  </div>\n</ion-content>'/*ion-inline-end:"/Users/k-kuwahara/src/github.com/k-kuwahara/pick-lunch-menu/src/pages/seg/segment.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__store_service__["a" /* StoreService */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* AlertController */]])
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* AlertController */]])
 ], SegmentPage);
 
 //# sourceMappingURL=segment.js.map
@@ -57478,6 +57487,7 @@ var IonicStorageModule = (function () {
     IonicStorageModule.ctorParameters = function () { return []; };
     return IonicStorageModule;
 }());
+
 
 
 /***/ }),
@@ -75198,9 +75208,9 @@ var MyApp = (function () {
     return MyApp;
 }());
 MyApp = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({template:/*ion-inline-start:"/Users/k-kuwahara/desktop/programing/ionics/pick-lunch-menu/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Users/k-kuwahara/desktop/programing/ionics/pick-lunch-menu/src/app/app.html"*/
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({template:/*ion-inline-start:"/Users/k-kuwahara/src/github.com/k-kuwahara/pick-lunch-menu/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Users/k-kuwahara/src/github.com/k-kuwahara/pick-lunch-menu/src/app/app.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
 ], MyApp);
 
 //# sourceMappingURL=app.component.js.map
@@ -102279,16 +102289,15 @@ var IonicNativePlugin = (function () {
  * @usage
  * First, if you'd like to use SQLite, install the cordova-sqlite-storage plugin:
  * ```bash
- * cordova plugin add cordova-sqlite-storage --save
+ * ionic cordova plugin add cordova-sqlite-storage
  * ```
  *
- * Next, install the package (comes by default for Ionic 2 apps >= RC.0)
- *
+ * Next, install the package (comes by default for Ionic apps > Ionic V1):
  * ```bash
  * npm install --save @ionic/storage
  * ```
  *
- * Next, add it to the imports list in your `NgModule` declaration (for example, in `src/app.module.ts`):
+ * Next, add it to the imports list in your `NgModule` declaration (for example, in `src/app/app.module.ts`):
  *
  * ```typescript
  * import { IonicStorageModule } from '@ionic/storage';
@@ -102298,6 +102307,7 @@ var IonicNativePlugin = (function () {
  *     // ...
  *   ],
  *   imports: [
+ *     BrowserModule,
  *     IonicModule.forRoot(MyApp),
  *     IonicStorageModule.forRoot()
  *   ],
@@ -102305,7 +102315,9 @@ var IonicNativePlugin = (function () {
  *   entryComponents: [
  *     // ...
  *   ],
- *   providers: []
+ *   providers: [
+ *     // ...
+ *   ]
  * })
  * export class AppModule {}
  *```
@@ -102315,21 +102327,20 @@ var IonicNativePlugin = (function () {
  * import { Storage } from '@ionic/storage';
 
  * export class MyApp {
- *   constructor(storage: Storage) {
+ *   constructor(private storage: Storage) { }
  *
- *      storage.ready().then(() => {
+ *   ...
  *
- *        // set a key/value
- *        storage.set('name', 'Max');
+ *   // set a key/value
+ *   storage.set('name', 'Max');
  *
- *        // Or to get a key/value pair
- *        storage.get('age').then((val) => {
- *          console.log('Your age is', val);
- *        })
- *      });
- *   }
+ *   // Or to get a key/value pair
+ *   storage.get('age').then((val) => {
+ *     console.log('Your age is', val);
+ *   });
  * }
  * ```
+ *
  *
  * ### Configuring Storage
  *
@@ -102341,20 +102352,19 @@ var IonicNativePlugin = (function () {
  * ```typescript
  * import { IonicStorageModule } from '@ionic/storage';
  *
- * export function provideStorage() {
- *   return new Storage({ name: '__mydb' });
- * }
- *
  * @NgModule({
- *   declarations: ...,
+ *   declarations: [...],
  *   imports: [
- *     IonicStorageModule.forRoot({ useFactory: provideStorage })
+ *     IonicStorageModule.forRoot({
+ *       name: '__mydb',
+         driverOrder: ['indexeddb', 'sqlite', 'websql']
+ *     })
  *   ],
- *   bootstrap: ...,
- *   entryComponents: ...,
- *    providers: []
+ *   bootstrap: [...],
+ *   entryComponents: [...],
+ *    providers: [...]
  * })
- * export class AppModule {}
+ * export class AppModule { }
  * ```
  */
 var Storage = (function () {
@@ -102386,7 +102396,7 @@ var Storage = (function () {
     Object.defineProperty(Storage.prototype, "driver", {
         /**
          * Get the name of the driver being used.
-         * @return Name of the driver
+         * @returns {string | null} Name of the driver
          */
         get: function () {
             return this._driver;
@@ -102396,7 +102406,7 @@ var Storage = (function () {
     });
     /**
      * Reflect the readiness of the store.
-     * @return Promise that resolves when the store is ready
+     * @returns {Promise<LocalForage>} Returns a promise that resolves when the store is ready
      */
     Storage.prototype.ready = function () {
         return this._dbPromise;
@@ -102417,58 +102427,60 @@ var Storage = (function () {
     };
     /**
      * Get the value associated with the given key.
-     * @param key the key to identify this value
-     * @return Promise that resolves with the value
+     * @param {any} key the key to identify this value
+     * @returns {Promise} Returns a promise with the value of the given key
      */
     Storage.prototype.get = function (key) {
         return this._dbPromise.then(function (db) { return db.getItem(key); });
     };
     /**
      * Set the value for the given key.
-     * @param key the key to identify this value
-     * @param value the value for this key
-     * @return Promise that resolves when the value is set
+     * @param {any} key the key to identify this value
+     * @param {any} value the value for this key
+     * @returns {Promise} Returns a promise that resolves when the key and value are set
      */
     Storage.prototype.set = function (key, value) {
         return this._dbPromise.then(function (db) { return db.setItem(key, value); });
     };
     /**
      * Remove any value associated with this key.
-     * @param key the key to identify this value
-     * @return Promise that resolves when the value is removed
+     * @param {any} key the key to identify this value
+     * @returns {Promise} Returns a promise that resolves when the value is removed
      */
     Storage.prototype.remove = function (key) {
         return this._dbPromise.then(function (db) { return db.removeItem(key); });
     };
     /**
      * Clear the entire key value store. WARNING: HOT!
-     * @return Promise that resolves when the store is cleared
+     * @returns {Promise} Returns a promise that resolves when the store is cleared
      */
     Storage.prototype.clear = function () {
         return this._dbPromise.then(function (db) { return db.clear(); });
     };
     /**
-     * @return Promise that resolves with the number of keys stored.
+     * @returns {Promise} Returns a promise that resolves with the number of keys stored.
      */
     Storage.prototype.length = function () {
         return this._dbPromise.then(function (db) { return db.length(); });
     };
     /**
-     * @return Promise that resolves with the keys in the store.
+     * @returns {Promise} Returns a promise that resolves with the keys in the store.
      */
     Storage.prototype.keys = function () {
         return this._dbPromise.then(function (db) { return db.keys(); });
     };
     /**
      * Iterate through each key,value pair.
-     * @param iteratorCallback a callback of the form (value, key, iterationNumber)
-     * @return Promise that resolves when the iteration has finished.
+     * @param {any} iteratorCallback a callback of the form (value, key, iterationNumber)
+     * @returns {Promise} Returns a promise that resolves when the iteration has finished.
      */
     Storage.prototype.forEach = function (iteratorCallback) {
         return this._dbPromise.then(function (db) { return db.iterate(iteratorCallback); });
     };
     return Storage;
 }());
+
+/** @hidden */
 function getDefaultConfig() {
     return {
         name: '_ionicstorage',
@@ -102477,7 +102489,9 @@ function getDefaultConfig() {
     };
 }
 ;
-var StorageConfigToken = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["H" /* OpaqueToken */]('STORAGE_CONFIG_TOKEN');
+/** @hidden */
+var StorageConfigToken = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["j" /* InjectionToken */]('STORAGE_CONFIG_TOKEN');
+/** @hidden */
 function provideStorage(storageConfig) {
     var config = !!storageConfig ? storageConfig : getDefaultConfig();
     return new Storage(config);

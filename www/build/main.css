@@ -4163,9 +4163,8 @@ ion-alert input {
 }
 
 .alert-ios .alert-title {
-  margin-top: 12px;
-  margin-bottom: 12px;
-  font-size: 22px;
+  margin-top: 8px;
+  font-size: 17px;
   font-weight: 600;
 }
 
@@ -8836,7 +8835,7 @@ ion-datetime {
 }
 
 .datetime-ios {
-  padding: 17px 8px 17px 16px;
+  padding: 11px 8px 11px 16px;
 }
 
 .datetime-ios .datetime-placeholder {
@@ -8844,7 +8843,7 @@ ion-datetime {
 }
 
 .datetime-md {
-  padding: 17px 8px 17px 16px;
+  padding: 13px 8px 13px 16px;
 }
 
 .datetime-md .datetime-placeholder {
@@ -9090,8 +9089,7 @@ ion-fab-list[side=right] {
 }
 
 .fab-ios.activated {
-  background-color: #330000;
-  opacity: 0.5;
+  background-color: #427feb;
 }
 
 .fab-ios-in-list {
@@ -12789,14 +12787,14 @@ input.text-input:-webkit-autofill {
 }
 
 .text-input-ios {
-  margin: 17px 8px 17px 0;
+  margin: 11px 8px 11px 0;
   padding: 0;
   width: calc(100% - 8px);
 }
 
 .input-ios .inset-input {
-  padding: 8.5px 8px;
-  margin: 8.5px 16px 8.5px 0;
+  padding: 5.5px 8px;
+  margin: 5.5px 16px 5.5px 0;
 }
 
 .item-ios.item-label-stacked .text-input,
@@ -12835,14 +12833,14 @@ input.text-input:-webkit-autofill {
 }
 
 .text-input-md {
-  margin: 17px 8px;
+  margin: 13px 8px;
   padding: 0;
   width: calc(100% - 8px - 8px);
 }
 
 .input-md .inset-input {
-  padding: 8.5px 8px;
-  margin: 8.5px 16px;
+  padding: 6.5px 8px;
+  margin: 6.5px 16px;
 }
 
 .item-md.item-input.item-input-has-focus .item-inner,
@@ -14208,7 +14206,7 @@ ion-label[floating] {
 }
 
 .label-ios {
-  margin: 17px 8px 17px 0;
+  margin: 11px 8px 11px 0;
 }
 
 .label-ios + ion-input .text-input,
@@ -14287,7 +14285,7 @@ ion-label[floating] {
 }
 
 .label-md {
-  margin: 17px 8px 17px 0;
+  margin: 13px 8px 13px 0;
 }
 
 [text-wrap] .label-md {
@@ -18057,7 +18055,7 @@ ion-select {
 }
 
 .select-ios {
-  padding: 17px 8px 17px 16px;
+  padding: 11px 8px 11px 16px;
 }
 
 .select-ios .select-placeholder {
@@ -18085,7 +18083,7 @@ ion-select {
 }
 
 .select-md {
-  padding: 17px 8px 17px 16px;
+  padding: 13px 8px 13px 16px;
 }
 
 .select-md .select-placeholder {

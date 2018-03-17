@@ -4,12 +4,5 @@
   "version": "0.0.1",
   "default_locale": "ja_JP",
   "display": "standalone",
-  "background_color": "#4e8ef7",
-  "icons": [{
-     "src": "assets/imgs/logo.png",
-     "sizes": "512x512",
-     "type": "image/png"
-   }],
-  "theme_color": "#4e8ef7",
   "start_url": "index.html"
 }
