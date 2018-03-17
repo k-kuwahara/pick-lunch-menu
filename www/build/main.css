@@ -4304,7 +4304,7 @@ ion-alert input {
   border-top-width: 0;
   border-left-width: 0;
   border-style: solid;
-  border-color: #ffbb00;
+  border-color: #fff;
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
 }
@@ -4506,7 +4506,7 @@ ion-alert input {
   border-top-width: 0;
   border-left-width: 0;
   border-style: solid;
-  border-color: #ffbb00;
+  border-color: #fff;
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
 }
@@ -25202,6 +25202,7 @@ ion-navbar.toolbar {
 page-home h1, page-home h2, page-home h3 {
   text-align: center;
   padding: 30px 0;
+  color: #330000;
 }
 
 page-home .toolbar-background {
@@ -25230,13 +25231,42 @@ page-home .show-menu {
   background-color: #ffbb00;
   color: #330000;
   border: 1px solid #330000;
-  margin: 20px auto;
+  margin: 20px auto 50px;
   width: 80%;
+}
+
+page-home .show-menu .button-inner {
+  font-size: 18px;
 }
 
 page-home .show-menu.activated {
   background-color: #330000;
   color: #fff;
+}
+
+/* about alert design */
+.alert-ios,
+.alert-md {
+  font-size: 16px;
+}
+
+.alert-ios .alert-head,
+.alert-ios .alert-message,
+.alert-md .alert-head,
+.alert-md .alert-message {
+  background-color: #ffbb00;
+}
+
+.alert-ios .alert-title,
+.alert-md .alert-title {
+  font-size: 2.5rem;
+  margin: 20px auto;
+}
+
+.alert-ios .alert-sub-title,
+.alert-md .alert-sub-title {
+  margin-top: 5px;
+  color: #444;
 }
 
 page-segment .toolbar-background {

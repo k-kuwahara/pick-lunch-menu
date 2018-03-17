@@ -56516,6 +56516,7 @@ var HomePage = (function () {
         this.select = e;
     };
     HomePage.prototype.show_menu = function () {
+        var _this = this;
         if (this.select.length > 0) {
             var menus = this.store_service.get_menu_with_category(this.select);
             var key = Math.floor(Math.random() * menus.length);
@@ -56535,16 +56536,29 @@ var HomePage = (function () {
             alert.present();
         }
         else {
-            var alert = this.alertCtrl.create({
+            var confirm = this.alertCtrl.create({
                 title: this.menu['name'],
-                subTitle: 'はどうですか？',
-                buttons: ['OK']
+                message: 'はどうですか？',
+                buttons: [
+                    {
+                        text: '再度取得'
+                    },
+                    {
+                        text: '決定!!',
+                        handler: function () {
+                            _this.open_shop_list(_this.menu['name']);
+                        }
+                    }
+                ]
             });
-            alert.present();
+            confirm.present();
         }
     };
     HomePage.prototype.open_settings_page = function () {
         this.nav.push(__WEBPACK_IMPORTED_MODULE_2__seg_segment__["a" /* SegmentPage */]);
+    };
+    HomePage.prototype.open_shop_list = function (menu) {
+        console.info(menu);
     };
     return HomePage;
 }());
@@ -56703,7 +56717,7 @@ var NewPage = (function () {
     NewPage.prototype.show_toast = function (position) {
         var toast = this.toastCtrl.create({
             message: this.error_txt,
-            duration: 2000,
+            duration: 1000,
             position: position
         });
         toast.present(toast);
@@ -56714,10 +56728,12 @@ NewPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
         selector: 'page-new',template:/*ion-inline-start:"/Users/k-kuwahara/src/github.com/k-kuwahara/pick-lunch-menu/src/pages/seg/new-page.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      新規登録\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <ion-icon name="md-close"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <h1>{{ title }}</h1>\n  <ion-list>\n    <ion-item *ngIf="type == \'category\' ">\n      <ion-input type="text" value="" [(ngModel)]="category" placeholder="カテゴリ名を入力してください"></ion-input>\n    </ion-item>\n    <ion-item *ngIf="type == \'menu\' ">\n      <ion-label>カテゴリを選択</ion-label>\n      <ion-select [(ngModel)]="category" (ionChange)="select_category($event)" multiple="false">\n        <ion-option *ngFor="let item of categories" value="{{ item.id }}">\n          {{ item.name }}\n        </ion-option>\n      </ion-select>\n    </ion-item>\n    <ion-item *ngIf="type == \'menu\' ">\n      <ion-input type="text" value="" [(ngModel)]="menu" placeholder="メニュー名を入力してください"></ion-input>\n    </ion-item>\n  </ion-list>\n  <button ion-button round block (click)="create(category, menu)" id="regist">登録</button>\n</ion-content>'/*ion-inline-end:"/Users/k-kuwahara/src/github.com/k-kuwahara/pick-lunch-menu/src/pages/seg/new-page.html"*/
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavParams */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* ViewController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ToastController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__store_service__["a" /* StoreService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__store_service__["a" /* StoreService */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* ViewController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ToastController */],
+        __WEBPACK_IMPORTED_MODULE_2__store_service__["a" /* StoreService */]])
 ], NewPage);
 
-var _a, _b, _c, _d;
 //# sourceMappingURL=new-page.js.map
 
 /***/ }),
@@ -75283,11 +75299,11 @@ var MENUS = [
     { id: 29, category_id: 5, name: '竜田揚げ' },
     { id: 30, category_id: 5, name: 'ハンバーグ' },
     { id: 31, category_id: 5, name: 'ステーキ' },
-    { id: 32, category_id: 6, name: '○○の味噌煮' },
-    { id: 33, category_id: 6, name: '○○の塩焼き' },
-    { id: 34, category_id: 6, name: '○○の刺し身' },
-    { id: 35, category_id: 6, name: '○○のフライ' },
-    { id: 36, category_id: 6, name: '○○の西京焼き' },
+    { id: 32, category_id: 6, name: '鯖の味噌煮' },
+    { id: 33, category_id: 6, name: '鯖の塩焼き' },
+    { id: 34, category_id: 6, name: '刺し身' },
+    { id: 35, category_id: 6, name: 'あじフライ' },
+    { id: 36, category_id: 6, name: '西京焼き' },
     { id: 37, category_id: 7, name: 'カレー' },
     { id: 38, category_id: 7, name: 'インドカレー' },
     { id: 39, category_id: 7, name: 'オムライス' }

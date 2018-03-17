@@ -56,16 +56,30 @@ export class HomePage implements OnInit {
          alert.present();
       }
       else {
-         let alert = this.alertCtrl.create({
+         let confirm = this.alertCtrl.create({
             title: this.menu['name'],
-            subTitle: 'はどうですか？',
-            buttons: ['OK']
+            message: 'はどうですか？',
+            buttons: [
+               {
+                  text: '再度取得'
+               },
+               {
+                  text: '決定!!',
+                  handler: () => {
+                     this.open_shop_list(this.menu['name']);
+                  }
+               }
+            ]
           });
-         alert.present();
+         confirm.present();
       }
    }
 
    open_settings_page() {
       this.nav.push(SegmentPage);
+   }
+
+   open_shop_list(menu: string) {
+      console.info(menu);
    }
 }
