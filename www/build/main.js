@@ -56528,15 +56528,15 @@ var HomePage = (function () {
             this.menu = menus[key];
         }
         if (this.menu == void 0) {
-            var alert = this.alertCtrl.create({
+            var alert_1 = this.alertCtrl.create({
                 title: '指定のカテゴリにはメニューが登録されていません',
                 subTitle: '',
                 buttons: ['閉じる']
             });
-            alert.present();
+            alert_1.present();
         }
         else {
-            var confirm = this.alertCtrl.create({
+            var confirm_1 = this.alertCtrl.create({
                 title: this.menu['name'],
                 message: 'はどうですか？',
                 buttons: [
@@ -56551,7 +56551,7 @@ var HomePage = (function () {
                     }
                 ]
             });
-            confirm.present();
+            confirm_1.present();
         }
     };
     HomePage.prototype.open_settings_page = function () {
@@ -56566,10 +56566,11 @@ HomePage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
         selector: 'page-home',template:/*ion-inline-start:"/Users/k-kuwahara/src/github.com/k-kuwahara/pick-lunch-menu/src/pages/home/home.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      メニュー取得\n    </ion-title>\n    <button ion-button (click)="open_settings_page()" id="edit" color="light"><ion-icon name="settings"></ion-icon></button>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <h1>お昼は何食べよう？</h1>\n\n  <button class="show-menu" ion-button round block (click)="show_menu()">メニュー表示!!</button>\n\n  <ion-list>\n    <ion-item>\n      <ion-label>カテゴリで絞る</ion-label>\n      <ion-select [(ngModel)]="category" (ionChange)="select_category($event)" multiple="true">\n        <ion-option *ngFor="let item of categories" value="{{ item.id }}">\n          {{ item.name }}\n        </ion-option>\n      </ion-select>\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/k-kuwahara/src/github.com/k-kuwahara/pick-lunch-menu/src/pages/home/home.html"*/
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* AlertController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__store_service__["a" /* StoreService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__store_service__["a" /* StoreService */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* AlertController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_3__store_service__["a" /* StoreService */]])
 ], HomePage);
 
-var _a, _b, _c;
 //# sourceMappingURL=home.js.map
 
 /***/ }),
@@ -56826,7 +56827,7 @@ var SegmentPage = (function () {
 }());
 SegmentPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
-        selector: 'page-segment',template:/*ion-inline-start:"/Users/k-kuwahara/src/github.com/k-kuwahara/pick-lunch-menu/src/pages/seg/segment.html"*/'<ion-header>\n  <ion-navbar no-border-bottom>\n    <ion-title>\n      編集\n    </ion-title>\n  </ion-navbar>\n\n  <ion-toolbar no-border-top>\n    <ion-segment [(ngModel)]="set">\n      <ion-segment-button value="menu">\n        メニュー\n      </ion-segment-button>\n      <ion-segment-button value="category">\n        カテゴリ\n      </ion-segment-button>\n    </ion-segment>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-fab bottom right >\n    <button ion-fab id="add_item" (click)="open_new_modal(set)">＋</button>\n  </ion-fab>\n  <div [ngSwitch]="set">\n    <ion-list *ngSwitchCase="\'menu\'">\n      <h1>メニュー</h1>\n      <ion-item-sliding *ngFor="let menu of menus">\n        <ion-item>\n          <h2>{{ menu.name }}</h2>\n          <button ion-button (click)="open_modal(menu)" class="edit" color="light">編集</button>\n        </ion-item>\n        <ion-item-options side="right">\n          <button ion-button color="danger" (click)="delete(menu)">\n            <ion-icon name="trash"></ion-icon>\n            削除\n          </button>\n        </ion-item-options>\n      </ion-item-sliding>\n    </ion-list>\n\n    <ion-list *ngSwitchCase="\'category\'">\n      <h1>カテゴリ</h1>\n      <ion-item-sliding *ngFor="let cat of categories">\n        <ion-item>\n          <h2>{{ cat.name }}</h2>\n          <button ion-button (click)="open_modal(cat)" class="edit" color="light">編集</button>\n        </ion-item>\n        <ion-item-options side="right">\n          <button ion-button color="danger" (click)="delete(cat)">\n            <ion-icon name="trash"></ion-icon>\n            削除\n          </button>\n        </ion-item-options>\n      </ion-item-sliding>\n    </ion-list>\n  </div>\n</ion-content>'/*ion-inline-end:"/Users/k-kuwahara/src/github.com/k-kuwahara/pick-lunch-menu/src/pages/seg/segment.html"*/
+        selector: 'page-segment',template:/*ion-inline-start:"/Users/k-kuwahara/src/github.com/k-kuwahara/pick-lunch-menu/src/pages/seg/segment.html"*/'<ion-header>\n  <ion-navbar no-border-bottom>\n    <ion-title>\n      編集\n    </ion-title>\n  </ion-navbar>\n\n  <ion-toolbar no-border-top>\n    <ion-segment [(ngModel)]="set">\n      <ion-segment-button value="menu">\n        メニュー\n      </ion-segment-button>\n      <ion-segment-button value="category">\n        カテゴリ\n      </ion-segment-button>\n    </ion-segment>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-fab bottom right >\n    <button ion-fab id="add_item" (click)="open_new_modal(set)">＋</button>\n  </ion-fab>\n  <div [ngSwitch]="set">\n    <ion-list *ngSwitchCase="\'menu\'">\n      <h1>メニュー</h1>\n      <ion-item-sliding *ngFor="let menu of menus">\n        <ion-item>\n          <h2>{{ menu.name }}</h2>\n          <ion-icon name="swap" class="swap-icon"></ion-icon>\n        </ion-item>\n        <ion-item-options side="right">\n          <button ion-button (click)="open_modal(menu)" class="edit" color="default">\n            <ion-icon name="hammer"></ion-icon>\n            編集\n          </button>\n          <button ion-button color="danger" (click)="delete(menu)">\n            <ion-icon name="trash"></ion-icon>\n            削除\n          </button>\n        </ion-item-options>\n      </ion-item-sliding>\n    </ion-list>\n\n    <ion-list *ngSwitchCase="\'category\'">\n      <h1>カテゴリ</h1>\n      <ion-item-sliding *ngFor="let cat of categories">\n        <ion-item>\n          <h2>{{ cat.name }}</h2>\n          <ion-icon name="swap" class="swap-icon"></ion-icon>\n        </ion-item>\n        <ion-item-options side="right">\n          <button ion-button (click)="open_modal(cat)" class="edit" color="default">\n            <ion-icon name="hammer"></ion-icon>\n            編集\n          </button>\n          <button ion-button color="danger" (click)="delete(cat)">\n            <ion-icon name="trash"></ion-icon>\n            削除\n          </button>\n        </ion-item-options>\n      </ion-item-sliding>\n    </ion-list>\n  </div>\n</ion-content>'/*ion-inline-end:"/Users/k-kuwahara/src/github.com/k-kuwahara/pick-lunch-menu/src/pages/seg/segment.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__store_service__["a" /* StoreService */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */],

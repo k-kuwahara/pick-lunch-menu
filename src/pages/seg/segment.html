@@ -27,9 +27,13 @@
       <ion-item-sliding *ngFor="let menu of menus">
         <ion-item>
           <h2>{{ menu.name }}</h2>
-          <button ion-button (click)="open_modal(menu)" class="edit" color="light">編集</button>
+          <ion-icon name="swap" class="swap-icon"></ion-icon>
         </ion-item>
         <ion-item-options side="right">
+          <button ion-button (click)="open_modal(menu)" class="edit" color="default">
+            <ion-icon name="hammer"></ion-icon>
+            編集
+          </button>
           <button ion-button color="danger" (click)="delete(menu)">
             <ion-icon name="trash"></ion-icon>
             削除
@@ -43,9 +47,13 @@
       <ion-item-sliding *ngFor="let cat of categories">
         <ion-item>
           <h2>{{ cat.name }}</h2>
-          <button ion-button (click)="open_modal(cat)" class="edit" color="light">編集</button>
+          <ion-icon name="swap" class="swap-icon"></ion-icon>
         </ion-item>
         <ion-item-options side="right">
+          <button ion-button (click)="open_modal(cat)" class="edit" color="default">
+            <ion-icon name="hammer"></ion-icon>
+            編集
+          </button>
           <button ion-button color="danger" (click)="delete(cat)">
             <ion-icon name="trash"></ion-icon>
             削除
