@@ -14,6 +14,7 @@ export class SegmentPage implements OnInit {
    set: string = "menu";
    menus: object[];
    categories: object[];
+   items: string[];
 
    constructor(
       public store_service: StoreService,
@@ -23,13 +24,14 @@ export class SegmentPage implements OnInit {
    ngOnInit() {
       this.menus = this.store_service.get_all_menu();
       this.categories = this.store_service.get_category();
+      this.initializeItems(this.menus);
    }
 
    open_modal(param) {
       if (param.category_id)
-         param.type = 'menu'
+         param.type = 'menu';
       else
-         param.type = 'category'
+         param.type = 'category';
 
       let modal = this.modal_ctrl.create(DetailPage, param);
       modal.present();
@@ -78,5 +80,29 @@ export class SegmentPage implements OnInit {
       });
 
       return items;
+   }
+
+   initializeItems(list) {
+      this.items = list.forEach((v, i) => {
+         this.items.push(v.name);
+      });
+   }
+
+   getItems(ev) {
+      const val = ev.target.value;
+      if (val && val.trim() != '') {
+         if (this.set === 'menu') {
+            this.initializeItems(this.menus)
+            this.items = this.items.filter((item) => {
+               return (item.indexOf(val) > -1);
+            })
+         }
+         else {
+            this.initializeItems(this.categories)
+            this.items = this.items.filter((item) => {
+               return (item.indexOf(val) > -1);
+            })
+         }
+      }
    }
 }

@@ -22,9 +22,9 @@
     <button ion-fab id="add_item" (click)="open_new_modal(set)">＋</button>
   </ion-fab>
   <div [ngSwitch]="set">
-    <ion-searchbar (ionInput)="get_items($event)"></ion-searchbar>
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
     <ion-list *ngSwitchCase="'menu'">
-      <ion-item-sliding *ngFor="let menu of menus">
+      <ion-item-sliding *ngFor="let menu of items">
         <ion-item>
           <h2>{{ menu.name }}</h2>
           <ion-icon name="swap" class="swap-icon"></ion-icon>
@@ -42,9 +42,9 @@
       </ion-item-sliding>
     </ion-list>
 
-    <ion-searchbar (ionInput)="get_items($event)"></ion-searchbar>
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
     <ion-list *ngSwitchCase="'category'">
-      <ion-item-sliding *ngFor="let cat of categories">
+      <ion-item-sliding *ngFor="let cat of items">
         <ion-item>
           <h2>{{ cat.name }}</h2>
           <ion-icon name="swap" class="swap-icon"></ion-icon>
