@@ -14,7 +14,6 @@ page-segment {
 		color: #000;
 		font-weight: 300;
 	}
-
 	.toolbar-content {
 		.segment-button {
 			color: #330000;
@@ -26,7 +25,15 @@ page-segment {
 				color: #fff;
 			}
 		}
+		.segment-md {
+			.segment-button {
+				opacity: 1;
+			}
+		}
 	}
+        .searchbar-ios {
+            padding: 4px 8px 6px;
+        }
 	.list {
 		h1 {
 			color: #330000;

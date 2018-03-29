@@ -17,13 +17,13 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
   <ion-fab bottom right >
     <button ion-fab id="add_item" (click)="open_new_modal(set)">＋</button>
   </ion-fab>
   <div [ngSwitch]="set">
+    <ion-searchbar (ionInput)="get_items($event)"></ion-searchbar>
     <ion-list *ngSwitchCase="'menu'">
-      <h1>メニュー</h1>
       <ion-item-sliding *ngFor="let menu of menus">
         <ion-item>
           <h2>{{ menu.name }}</h2>
@@ -42,8 +42,8 @@
       </ion-item-sliding>
     </ion-list>
 
+    <ion-searchbar (ionInput)="get_items($event)"></ion-searchbar>
     <ion-list *ngSwitchCase="'category'">
-      <h1>カテゴリ</h1>
       <ion-item-sliding *ngFor="let cat of categories">
         <ion-item>
           <h2>{{ cat.name }}</h2>

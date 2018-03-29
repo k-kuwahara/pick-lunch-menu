@@ -25298,6 +25298,14 @@ page-segment .toolbar-content .segment-button.segment-activated {
   color: #fff;
 }
 
+page-segment .toolbar-content .segment-md .segment-button {
+  opacity: 1;
+}
+
+page-segment .searchbar-ios {
+  padding: 4px 8px 6px;
+}
+
 page-segment .list h1 {
   color: #330000;
   text-align: center;
